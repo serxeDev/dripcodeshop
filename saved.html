@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drippy CodeShop // Saved Codes</title>
+
+  <!-- Google Fonts: Pixelify Sans & Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Marks the document as JS-driven so fade-in elements only hide when
+       JavaScript is available to reveal them again -->
+  <script>
+    document.documentElement.classList.add("js");
+  </script>
+
+  <!-- Shared stylesheet (used by every page) -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="min-h-screen flex flex-col selection:bg-[#3B82F6] selection:text-[#F3F1EC]">
+
+  <!-- ==================== TOP NAVIGATION BAR ==================== -->
+  <header id="siteHeader" class="site-header fixed top-0 left-0 right-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="flex flex-col">
+          <span class="font-pixel text-lg sm:text-xl font-bold tracking-wide text-[#F3F1EC] leading-none">
+            DRIPPY<span class="text-[#3B82F6]">.</span>CODESHOP
+          </span>
+          <span class="text-[11px] text-[#8E8D88] tracking-wider uppercase font-medium" data-i18n="tagline">Classic GFX Vault</span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+        <a href="index.html" class="text-[#8E8D88] hover:text-[#3B82F6] transition-colors" data-i18n="navHome">Home</a>
+        <a href="guild.html" class="text-[#8E8D88] hover:text-[#3B82F6] transition-colors" data-i18n="navGuild">Guild</a>
+        <a href="brands.html" class="text-[#8E8D88] hover:text-[#3B82F6] transition-colors" data-i18n="navBrands">Brands</a>
+        <a href="about.html" class="text-[#8E8D88] hover:text-[#F3F1EC] transition-colors" data-i18n="navAbout">About</a>
+      </nav>
+
+      <!-- Right Status Pill & Mobile Guide Trigger -->
+      <div class="flex items-center gap-2.5">
+        <!-- Mobile Drawer Toggle (hamburger) -->
+        <button
+          type="button"
+          id="drawerToggle"
+          onclick="toggleDrawer()"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mobileDrawer"
+          class="md:hidden shrink-0 inline-flex flex-col items-center justify-center gap-[4px] w-9 h-9 rounded border border-[#2E3138] bg-[#1E2025] hover:border-[#3B82F6] transition-colors"
+        >
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+
+        <!-- Language Switch (EN / ES) -->
+        <div class="hidden sm:flex items-center rounded border border-[#2E3138] bg-[#1E2025] overflow-hidden shrink-0">
+          <button type="button" data-lang="en" class="lang-btn px-2.5 py-1.5 font-pixel text-xs transition-colors">EN</button>
+          <button type="button" data-lang="es" class="lang-btn px-2.5 py-1.5 font-pixel text-xs transition-colors border-l border-[#2E3138]">ES</button>
+        </div>
+
+        <!-- Saved Codes Button (next to the language switch) -->
+        <a
+          href="saved.html"
+          class="relative hidden sm:inline-flex items-center justify-center w-8 h-8 rounded border border-[#2E3138] bg-[#1E2025] text-[#8E8D88] hover:text-[#3B82F6] hover:border-[#3B82F6] transition-colors shrink-0"
+          aria-label="Saved codes"
+          title="Saved codes"
+          data-i18n-title="navSaved"
+          data-i18n-aria-label="navSaved"
+        >
+          <svg class="w-4 h-4" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="none" stroke-linecap="round" stroke-linejoin="round" d="M5 4a2 2 0 012-2h10a2 2 0 012 2v18l-7-4-7 4V4z" />
+          </svg>
+          <span class="saved-badge hidden absolute -top-1.5 -right-1.5" data-saved-count>0</span>
+        </a>
+        <!-- Play GraalClassic Button -->
+        <a
+          href="https://graal.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="play-graal-btn hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded border border-[#22C55E] font-pixel text-xs text-white transition-transform hover:scale-[1.03] hover:brightness-110 active:scale-100"
+        >
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M8 5.14v13.72c0 .55.61.88 1.02.55l11.06-6.86a.66.66 0 000-1.1L9.02 4.59A.65.65 0 008 5.14z"/>
+          </svg>
+          PLAY GRAALCLASSIC
+        </a>
+      </div>
+    </div>
+  </header>
+  <!-- ==================== MOBILE DRAWER SIDEBAR ==================== -->
+  <div id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Main menu">
+    <!-- Backdrop -->
+    <div id="drawerBackdrop" onclick="closeDrawer()"></div>
+
+    <!-- Panel -->
+    <div id="drawerPanel">
+      <!-- Brand + close -->
+      <div class="flex items-center justify-between gap-3 px-4 h-16 border-b border-[#2E3138] shrink-0">
+        <a href="index.html" onclick="closeDrawer()" class="flex items-center gap-2.5">
+          <span class="font-pixel text-base font-bold tracking-wide text-[#F3F1EC] leading-none">
+            DRIPPY<span class="text-[#3B82F6]">.</span>CODESHOP
+          </span>
+        </a>
+        <button type="button" onclick="closeDrawer()" aria-label="Close menu" class="shrink-0 text-[#EF4444] hover:text-[#F87171] font-pixel text-lg px-2 transition-colors">[X]</button>
+      </div>
+
+      <nav id="drawerNav" aria-label="Mobile navigation" class="flex flex-col gap-1 p-3">
+        <a href="index.html" data-nav="home" onclick="closeDrawer()">
+          <svg class="drawer-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h3a1 1 0 001-1V10" />
+          </svg>
+          <span data-i18n="navHome">Home</span>
+        </a>
+
+        <a href="guild.html" data-nav="guild" onclick="closeDrawer()">
+          <svg class="drawer-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a3 3 0 11-4 0 2 2 0 014 0zM7 10a3 3 0 11-4 0 2 2 0 014 0z" />
+          </svg>
+          <span data-i18n="navGuild">Guild</span>
+        </a>
+
+        <a href="brands.html" data-nav="brands" onclick="closeDrawer()">
+          <svg class="drawer-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M7 7h10M7 12h10M7 17h6M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z" />
+          </svg>
+          <span data-i18n="navBrands">Brands</span>
+        </a>
+
+        <a href="about.html" data-nav="about" onclick="closeDrawer()">
+          <svg class="drawer-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span data-i18n="navAbout">About</span>
+        </a>
+
+        <a href="terms.html" data-nav="terms" onclick="closeDrawer()">
+          <svg class="drawer-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+          <span data-i18n="navTerms">Terms &amp; Conditions</span>
+        </a>
+
+        <a href="privacy.html" data-nav="privacy" onclick="closeDrawer()">
+          <svg class="drawer-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+          <span data-i18n="navPrivacy">Privacy Policy</span>
+        </a>
+
+        <a href="saved.html" data-nav="saved" onclick="closeDrawer()">
+          <svg class="drawer-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 4a2 2 0 012-2h10a2 2 0 012 2v18l-7-4-7 4V4z" />
+          </svg>
+          <span data-i18n="navSaved">Saved</span>
+          <span class="saved-badge hidden ml-auto" data-saved-count>0</span>
+        </a>
+      </nav>
+
+      <!-- Language Switch (EN / ES) -->
+      <div class="px-3 pb-3 shrink-0">
+        <span class="block text-[11px] font-medium uppercase tracking-wider text-[#8E8D88] mb-2 px-2" data-i18n="language">Language</span>
+        <div class="flex items-center rounded border border-[#2E3138] bg-[#141518] overflow-hidden">
+          <button type="button" data-lang="en" class="lang-btn flex-1 px-3 py-2 font-pixel text-xs transition-colors">EN</button>
+          <button type="button" data-lang="es" class="lang-btn flex-1 px-3 py-2 font-pixel text-xs transition-colors border-l border-[#2E3138]">ES</button>
+        </div>
+      </div>
+
+      <!-- Quick actions -->
+      <div class="mt-auto p-3 border-t border-[#2E3138] flex flex-col gap-2 shrink-0">
+        <button
+          type="button"
+          onclick="openGuideModal(); closeDrawer();"
+          class="btn-flat w-full px-4 py-2.5 rounded bg-[#141518] border border-[#2E3138] text-[#F3F1EC] font-pixel text-xs hover:border-[#3B82F6] transition-colors"
+        >
+          <span data-i18n="navHowTo">How to Equip Codes</span>
+        </button>
+        <a
+          href="https://graal.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-flat w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded bg-[#22C55E] border border-[#22C55E] text-white font-pixel text-xs hover:brightness-110 transition-all"
+        >
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M8 5.14v13.72c0 .55.61.88 1.02.55l11.06-6.86a.66.66 0 000-1.1L9.02 4.59A.65.65 0 008 5.14z" />
+          </svg>
+          PLAY GRAALCLASSIC
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE BANNER ==================== -->
+  <section id="top" class="page-banner border-b border-[#2E3138]">
+    <div class="page-overlay">
+      <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 pb-6 sm:pb-8">
+        <div class="max-w-3xl mx-auto text-center" id="pageHero">
+          <span class="fade-item inline-block font-pixel text-[11px] uppercase tracking-[0.2em] text-[#F59E0B] border border-[#F59E0B]/40 bg-[#F59E0B]/10 rounded px-2.5 py-1 mb-3">
+            <span data-i18n="savedBadge">Your collection</span>
+          </span>
+          <h1 class="fade-item font-pixel text-3xl sm:text-5xl font-bold tracking-tight text-[#F3F1EC] leading-[1.1] mb-3" data-i18n="savedTitle">
+            Saved Codes
+          </h1>
+          <p class="fade-item text-sm sm:text-base text-[#8E8D88] leading-relaxed max-w-2xl mx-auto" data-i18n="savedSubtitle">
+            Every shield and sword you bookmark is kept right here in your browser.
+          </p>
+          <p class="fade-item mt-4 font-pixel text-xs text-[#8E8D88]">
+            <span data-i18n="savedCountLabel">Saved codes</span>:
+            <span class="text-[#F59E0B]" data-saved-count>0</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SAVED LIST ==================== -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+    <!-- Toolbar -->
+    <div class="pb-6 mb-8 border-b border-[#2E3138] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <h2 class="font-pixel text-2xl sm:text-3xl font-bold text-[#F3F1EC]" data-i18n="savedListTitle">
+        Your Collection
+      </h2>
+
+      <div class="flex items-center gap-3">
+        <!-- Filter by type -->
+        <div class="flex items-center rounded border border-[#2E3138] bg-[#1E2025] overflow-hidden" id="savedFilter">
+          <button type="button" data-saved-filter="all" class="saved-filter-btn active font-pixel text-[11px] px-3 py-1.5 transition-colors" data-i18n="savedFilterAll">ALL</button>
+          <button type="button" data-saved-filter="shield" class="saved-filter-btn font-pixel text-[11px] px-3 py-1.5 transition-colors border-l border-[#2E3138]" data-i18n="savedFilterShields">SHIELDS</button>
+          <button type="button" data-saved-filter="sword" class="saved-filter-btn font-pixel text-[11px] px-3 py-1.5 transition-colors border-l border-[#2E3138]" data-i18n="savedFilterSwords">SWORDS</button>
+        </div>
+
+        <!-- Clear all -->
+        <button
+          type="button"
+          id="savedClearAllBtn"
+          onclick="clearSavedCodes()"
+          class="btn-flat hidden inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-[#141518] border border-[#2E3138] hover:border-[#EF4444] text-[#8E8D88] hover:text-[#F87171] font-pixel text-[11px] transition-colors"
+        >
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+          </svg>
+          <span data-i18n="savedClearAll">CLEAR ALL</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Saved cards (rendered by JavaScript) -->
+    <div id="savedGrid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5"></div>
+
+    <!-- Empty state -->
+    <div id="savedEmpty" class="hidden bg-[#1E2025] border border-[#2E3138] rounded-lg p-12 text-center">
+      <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-[#141518] border border-[#2E3138] mb-4">
+        <svg class="w-6 h-6 text-[#8E8D88]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 4a2 2 0 012-2h10a2 2 0 012 2v18l-7-4-7 4V4z" />
+        </svg>
+      </div>
+      <div class="font-pixel text-xl text-[#F3F1EC] mb-2" data-i18n="savedEmptyTitle">Nothing saved yet</div>
+      <p class="text-sm text-[#8E8D88] mb-5" data-i18n="savedEmptyText">
+        Tap the bookmark icon on any code to keep it here for later.
+      </p>
+      <a
+        href="index.html#archive"
+        class="btn-flat inline-flex items-center px-4 py-2 rounded bg-[#3B82F6] hover:bg-[#2563EB] text-[#F3F1EC] font-pixel text-sm"
+        data-i18n="savedEmptyBtn"
+      >
+        Browse Codes
+      </a>
+    </div>
+
+  </main>
+
+  <!-- Shared modules (I18N, drawer, fade reveal, sticky header) -->
+  <script src="js/app.js"></script>
+
+  <!-- Saved codes storage (localStorage) -->
+  <script src="js/saved.js"></script>
+
+  <!-- Shared code list + translations (used by the archive and the saved page) -->
+  <script src="js/codes-data.js"></script>
+  <script src="js/codes-i18n.js"></script>
+
+  <!-- Page-specific code for the saved collection -->
+  <script src="js/saved-page.js"></script>
+
+</body>
+</html>

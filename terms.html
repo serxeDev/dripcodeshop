@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drippy CodeShop // Terms &amp; Conditions</title>
+
+  <!-- Google Fonts: Pixelify Sans & Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Marks the document as JS-driven so fade-in elements only hide when
+       JavaScript is available to reveal them again -->
+  <script>
+    document.documentElement.classList.add("js");
+  </script>
+
+  <!-- Shared stylesheet (used by every page) -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="min-h-screen flex flex-col selection:bg-[#3B82F6] selection:text-[#F3F1EC]">
+
+  <!-- ==================== TOP NAVIGATION BAR ==================== -->
+  <header id="siteHeader" class="site-header fixed top-0 left-0 right-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="flex flex-col">
+          <span class="font-pixel text-lg sm:text-xl font-bold tracking-wide text-[#F3F1EC] leading-none">
+            DRIPPY<span class="text-[#3B82F6]">.</span>CODESHOP
+          </span>
+          <span class="text-[11px] text-[#8E8D88] tracking-wider uppercase font-medium" data-i18n="tagline">Classic GFX Vault</span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+        <a href="index.html" class="text-[#8E8D88] hover:text-[#3B82F6] transition-colors" data-i18n="navHome">Home</a>
+        <a href="guild.html" class="text-[#8E8D88] hover:text-[#3B82F6] transition-colors" data-i18n="navGuild">Guild</a>
+        <a href="brands.html" class="text-[#8E8D88] hover:text-[#3B82F6] transition-colors" data-i18n="navBrands">Brands</a>
+        <a href="about.html" class="text-[#8E8D88] hover:text-[#F3F1EC] transition-colors" data-i18n="navAbout">About</a>
+              </nav>
+
+      <!-- Right Status Pill & Mobile Guide Trigger -->
+      <div class="flex items-center gap-2.5">
+        <!-- Mobile Drawer Toggle (hamburger) -->
+        <button
+          type="button"
+          id="drawerToggle"
+          onclick="toggleDrawer()"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mobileDrawer"
+          class="md:hidden shrink-0 inline-flex flex-col items-center justify-center gap-[4px] w-9 h-9 rounded border border-[#2E3138] bg-[#1E2025] hover:border-[#3B82F6] transition-colors"
+        >
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+
+        <!-- Language Switch (EN / ES) -->
+        <div class="hidden sm:flex items-center rounded border border-[#2E3138] bg-[#1E2025] overflow-hidden shrink-0">
+          <button type="button" data-lang="en" class="lang-btn px-2.5 py-1.5 font-pixel text-xs transition-colors">EN</button>
+          <button type="button" data-lang="es" class="lang-btn px-2.5 py-1.5 font-pixel text-xs transition-colors border-l border-[#2E3138]">ES</button>
+        </div>
+
+        <!-- Saved Codes Button (next to the language switch) -->
+        <a
+          href="saved.html"
+          class="relative hidden sm:inline-flex items-center justify-center w-8 h-8 rounded border border-[#2E3138] bg-[#1E2025] text-[#8E8D88] hover:text-[#3B82F6] hover:border-[#3B82F6] transition-colors shrink-0"
+          aria-label="Saved codes"
+          title="Saved codes"
+          data-i18n-title="navSaved"
+          data-i18n-aria-label="navSaved"
+        >
+          <svg class="w-4 h-4" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="none" stroke-linecap="round" stroke-linejoin="round" d="M5 4a2 2 0 012-2h10a2 2 0 012 2v18l-7-4-7 4V4z" />
+          </svg>
+          <span class="saved-badge hidden absolute -top-1.5 -right-1.5" data-saved-count>0</span>
+        </a>
+        <!-- Play GraalClassic Button -->
+        <a
+          href="https://graal.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="play-graal-btn hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded border border-[#22C55E] font-pixel text-xs text-white transition-transform hover:scale-[1.03] hover:brightness-110 active:scale-100"
+        >
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M8 5.14v13.72c0 .55.61.88 1.02.55l11.06-6.86a.66.66 0 000-1.1L9.02 4.59A.65.65 0 008 5.14z"/>
+          </svg>
+          PLAY GRAALCLASSIC
+        </a>
+      </div>
+    </div>
+  </header>
+  <!-- ==================== MOBILE DRAWER SIDEBAR ==================== -->
+  <div id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Main menu">
+    <!-- Backdrop -->
+    <div id="drawerBackdrop" onclick="closeDrawer()"></div>
+
+    <!-- Panel -->
+    <div id="drawerPanel">
+      <!-- Brand + close -->
+      <div class="flex items-center justify-between gap-3 px-4 h-16 border-b border-[#2E3138] shrink-0">
+        <a href="index.html" onclick="closeDrawer()" class="flex items-center gap-2.5">
+          <span class="font-pixel text-base font-bold tracking-wide text-[#F3F1EC] leading-none">
+            DRIPPY<span class="text-[#3B82F6]">.</span>CODESHOP
+          </span>
+        </a>
+        <button type="button" onclick="closeDrawer()" aria-label="Close menu" class="shrink-0 text-[#EF4444] hover:text-[#F87171] font-pixel text-lg px-2 transition-colors">[X]</button>
+      </div>
+
+      <nav id="drawerNav" aria-label="Mobile navigation" class="flex flex-col gap-1 p-3">
+        <a href="index.html" data-nav="home" onclick="closeDrawer()">
+          <svg class="drawer-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h3a1 1 0 001-1V10" />
+          </svg>
+          <span data-i18n="navHome">Home</span>
+        </a>
+
+        <a href="guild.html" data-nav="guild" onclick="closeDrawer()">
+          <svg class="drawer-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a3 3 0 11-4 0 2 2 0 014 0zM7 10a3 3 0 11-4 0 2 2 0 014 0z" />
+          </svg>
+          <span data-i18n="navGuild">Guild</span>
+        </a>
+
+        <a href="brands.html" data-nav="brands" onclick="closeDrawer()">
+          <svg class="drawer-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M7 7h10M7 12h10M7 17h6M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z" />
+          </svg>
+          <span data-i18n="navBrands">Brands</span>
+        </a>
+
+        <a href="about.html" data-nav="about" onclick="closeDrawer()">
+          <svg class="drawer-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span data-i18n="navAbout">About</span>
+        </a>
+
+        <a href="terms.html" data-nav="terms" onclick="closeDrawer()">
+          <svg class="drawer-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+          <span data-i18n="navTerms">Terms &amp; Conditions</span>
+        </a>
+
+        <a href="privacy.html" data-nav="privacy" onclick="closeDrawer()">
+          <svg class="drawer-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+          <span data-i18n="navPrivacy">Privacy Policy</span>
+        </a>
+
+        <a href="saved.html" data-nav="saved" onclick="closeDrawer()">
+          <svg class="drawer-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 4a2 2 0 012-2h10a2 2 0 012 2v18l-7-4-7 4V4z" />
+          </svg>
+          <span data-i18n="navSaved">Saved</span>
+          <span class="saved-badge hidden ml-auto" data-saved-count>0</span>
+        </a>      </nav>
+
+      <!-- Language Switch (EN / ES) -->
+      <div class="px-3 pb-3 shrink-0">
+        <span class="block text-[11px] font-medium uppercase tracking-wider text-[#8E8D88] mb-2 px-2" data-i18n="language">Language</span>
+        <div class="flex items-center rounded border border-[#2E3138] bg-[#141518] overflow-hidden">
+          <button type="button" data-lang="en" class="lang-btn flex-1 px-3 py-2 font-pixel text-xs transition-colors">EN</button>
+          <button type="button" data-lang="es" class="lang-btn flex-1 px-3 py-2 font-pixel text-xs transition-colors border-l border-[#2E3138]">ES</button>
+        </div>
+      </div>
+
+      <!-- Quick actions -->
+      <div class="mt-auto p-3 border-t border-[#2E3138] flex flex-col gap-2 shrink-0">
+        <button
+          type="button"
+          onclick="openGuideModal(); closeDrawer();"
+          class="btn-flat w-full px-4 py-2.5 rounded bg-[#141518] border border-[#2E3138] text-[#F3F1EC] font-pixel text-xs hover:border-[#3B82F6] transition-colors"
+        >
+          <span data-i18n="navHowTo">How to Equip Codes</span>
+        </button>
+        <a
+          href="https://graal.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-flat w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded bg-[#22C55E] border border-[#22C55E] text-white font-pixel text-xs hover:brightness-110 transition-all"
+        >
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M8 5.14v13.72c0 .55.61.88 1.02.55l11.06-6.86a.66.66 0 000-1.1L9.02 4.59A.65.65 0 008 5.14z" />
+          </svg>
+          PLAY GRAALCLASSIC
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- ==================== PAGE BANNER ==================== -->
+  <section id="top" class="page-banner border-b border-[#2E3138]">
+    <div class="page-overlay">
+      <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 pb-6 sm:pb-8">
+        <div class="max-w-3xl mx-auto text-center" id="pageHero">
+          <span class="fade-item inline-block font-pixel text-[11px] uppercase tracking-[0.2em] text-[#3B82F6] border border-[#3B82F6]/40 bg-[#3B82F6]/10 rounded px-2.5 py-1 mb-3">
+            <span data-i18n="termsBadge">Legal</span>
+          </span>
+          <h1 class="fade-item font-pixel text-3xl sm:text-5xl font-bold tracking-tight text-[#F3F1EC] leading-[1.1] mb-3" data-i18n="termsTitle">
+            Terms &amp; Conditions
+          </h1>
+          <p class="fade-item text-sm sm:text-base text-[#8E8D88] leading-relaxed max-w-2xl mx-auto" data-i18n="termsSubtitle">
+            The rules that keep this fan-made archive fair, safe and fun for every Graalian.
+          </p>
+          <p class="fade-item mt-4 font-pixel text-xs text-[#8E8D88]">
+            <span data-i18n="termsUpdated">Last updated</span>: <span data-i18n="termsUpdatedDate">January 2026</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TERMS CONTENT ==================== -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+    <!-- Two column layout: the table of contents stays on the left
+         and follows the reader while the sections scroll on the right -->
+    <div class="grid grid-cols-1 lg:grid-cols-[16rem_minmax(0,1fr)] gap-8 lg:gap-12">
+
+      <!-- Table of contents (sticky on large screens) -->
+      <nav class="doc-toc fade-item bg-[#1E2025] border border-[#2E3138] rounded-lg p-5 sm:p-6 h-fit lg:sticky lg:top-24" aria-label="Table of contents">
+        <h2 class="font-pixel text-lg font-bold tracking-wide text-[#F3F1EC] mb-4" data-i18n="termsTocTitle">
+          TABLE OF CONTENTS
+        </h2>
+        <ol class="space-y-2 text-sm text-[#8E8D88] list-decimal list-inside">
+          <li><a href="#terms-acceptance" data-i18n="termsToc1">Acceptance of Terms</a></li>
+          <li><a href="#terms-use" data-i18n="termsToc2">Permitted Use</a></li>
+          <li><a href="#terms-content" data-i18n="termsToc3">Content &amp; Ownership</a></li>
+          <li><a href="#terms-license" data-i18n="termsToc4">Licence to Use</a></li>
+          <li><a href="#terms-conduct" data-i18n="termsToc5">Community Conduct</a></li>
+          <li><a href="#terms-disclaimer" data-i18n="termsToc6">Disclaimer</a></li>
+          <li><a href="#terms-liability" data-i18n="termsToc7">Limitation of Liability</a></li>
+          <li><a href="#terms-privacy" data-i18n="termsToc8">Privacy</a></li>
+          <li><a href="#terms-changes" data-i18n="termsToc9">Changes to These Terms</a></li>
+          <li><a href="#terms-contact" data-i18n="termsToc10">Contact</a></li>
+        </ol>
+      </nav>
+
+      <!-- Sections -->
+      <div class="doc-column min-w-0">
+
+      <!-- 1. Acceptance -->
+      <section id="terms-acceptance" class="doc-section fade-item mb-10">
+        <div class="doc-section-title">
+          <span class="w-2.5 h-2.5 rounded-xs bg-[#3B82F6]"></span>
+          <h2 class="font-pixel text-xl sm:text-2xl font-bold text-[#F3F1EC]" data-i18n="termsH1">1. Acceptance of Terms</h2>
+        </div>
+        <p class="text-sm sm:text-base text-[#8E8D88] leading-relaxed" data-i18n="termsP1">
+          By accessing or using Drippy CodeShop (the "Site"), you agree to be bound by these Terms &amp; Conditions, our Privacy Policy and the GraalOnline Classic Terms of Service. If you do not agree with any part of these terms, please stop using the Site.
+        </p>
+        <p class="text-sm sm:text-base text-[#8E8D88] leading-relaxed mt-3" data-i18n="termsP2">
+          These terms apply to every visitor, whether or not you copy a code or follow us on social media. By using the Site you confirm that you are old enough to agree to these terms in your jurisdiction and that you accept them on your own behalf or on behalf of a minor you supervise.
+        </p>
+      </section>
+
+      <!-- 2. Permitted use -->
+      <section id="terms-use" class="doc-section fade-item mb-10">
+        <div class="doc-section-title">
+          <span class="w-2.5 h-2.5 rounded-xs bg-[#3B82F6]"></span>
+          <h2 class="font-pixel text-xl sm:text-2xl font-bold text-[#F3F1EC]" data-i18n="termsH2">2. Permitted Use</h2>
+        </div>
+        <p class="text-sm sm:text-base text-[#8E8D88] leading-relaxed" data-i18n="termsP3">
+          You are welcome to browse the archive, copy the codes and equip the artwork on your own GraalOnline Classic character. You may also share links to this Site and feature the artwork on your own personal profiles, streams and videos.
+        </p>
+        <p class="text-sm sm:text-base text-[#8E8D88] leading-relaxed mt-3" data-i18n="termsP4">
+          You agree not to:
+        </p>
+        <ul class="mt-3 space-y-2 text-sm sm:text-base text-[#8E8D88] leading-relaxed list-disc list-inside marker:text-[#3B82F6]">
+          <li data-i18n="termsLi1">Redistribute, mirror, re-host or repackage the sprite files as your own download bundle.</li>
+          <li data-i18n="termsLi2">Attempt to bypass, overload or disrupt the Site, its hosting or the experience of other players.</li>
+          <li data-i18n="termsLi3">Scrape, crawl or bulk-download the archive for commercial or training purposes.</li>
+          <li data-i18n="termsLi4">Use the Site or its content for anything unlawful, or in a way that infringes the rights of others.</li>
+          <li data-i18n="termsLi5">Impersonate the Site, its artists or other members of the community.</li>
+        </ul>
+      </section>
+
+      <!-- 3. Content & ownership -->
+      <section id="terms-content" class="doc-section fade-item mb-10">
+        <div class="doc-section-title">
+          <span class="w-2.5 h-2.5 rounded-xs bg-[#3B82F6]"></span>
+          <h2 class="font-pixel text-xl sm:text-2xl font-bold text-[#F3F1EC]" data-i18n="termsH3">3. Content &amp; Ownership</h2>
+        </div>
+        <p class="text-sm sm:text-base text-[#8E8D88] leading-relaxed" data-i18n="termsP5">
+          Drippy CodeShop is an unofficial, fan-made community project. The pixel artwork published here is created by the artists listed on the Brands and Guild pages and remains the property of those artists and their respective rights holders.
+        </p>
+        <p class="text-sm sm:text-base text-[#8E8D88] leading-relaxed mt-3" data-i18n="termsP6">
+          GraalOnline Classic, Toonslab and Eurocenter are trademarks and properties of their respective owners. This Site is not affiliated with, endorsed by, or sponsored by Toonslab or Eurocenter. All brand names, logos and game content are used for identification and community purposes only.
+        </p>
+      </section>
+
+      <!-- 4. Licence -->
+      <section id="terms-license" class="doc-section fade-item mb-10">
+        <div class="doc-section-title">
+          <span class="w-2.5 h-2.5 rounded-xs bg-[#3B82F6]"></span>
+          <h2 class="font-pixel text-xl sm:text-2xl font-bold text-[#F3F1EC]" data-i18n="termsH4">4. Licence to Use</h2>
+        </div>
+        <p class="text-sm sm:text-base text-[#8E8D88] leading-relaxed" data-i18n="termsP7">
+          We grant you a personal, non-exclusive, non-transferable, revocable and royalty-free licence to use the codes and artwork on your own GraalOnline Classic character and to share links to the Site. This licence does not transfer ownership of the artwork and does not permit resale or redistribution of the sprite files themselves.
+        </p>
+        <p class="text-sm sm:text-base text-[#8E8D88] leading-relaxed mt-3" data-i18n="termsP8">
+          If you are an artist and want your work removed from the archive, or you wish to claim credit for a piece, please contact us using the details in the Contact section. Verified requests are always honoured promptly.
+        </p>
+      </section>
+
+      <!-- 5. Conduct -->
+      <section id="terms-conduct" class="doc-section fade-item mb-10">
+        <div class="doc-section-title">
+          <span class="w-2.5 h-2.5 rounded-xs bg-[#3B82F6]"></span>
+          <h2 class="font-pixel text-xl sm:text-2xl font-bold text-[#F3F1EC]" data-i18n="termsH5">5. Community Conduct</h2>
+        </div>
+        <p class="text-sm sm:text-base text-[#8E8D88] leading-relaxed" data-i18n="termsP9">
+          The Discord server, the comment channels and any other space connected to this Site are shared community spaces. Everyone is expected to be respectful, to give credit to artists, and to keep conversations focused on GraalOnline Classic and pixel art.
+        </p>
+        <p class="text-sm sm:text-base text-[#8E8D88] leading-relaxed mt-3" data-i18n="termsP10">
+          We may remove posts, block users or restrict access to community spaces at our discretion when these terms or the GraalOnline Classic rules are broken. We are not obliged to give a reason, and we do not moderate private conversations that happen outside our spaces.
+        </p>
+      </section>
+
+      <!-- 6. Disclaimer -->
+      <section id="terms-disclaimer" class="doc-section fade-item mb-10">
+        <div class="doc-section-title">
+          <span class="w-2.5 h-2.5 rounded-xs bg-[#3B82F6]"></span>
+          <h2 class="font-pixel text-xl sm:text-2xl font-bold text-[#F3F1EC]" data-i18n="termsH6">6. Disclaimer</h2>
+        </div>
+        <p class="text-sm sm:text-base text-[#8E8D88] leading-relaxed" data-i18n="termsP11">
+          The Site and its content are provided on an "as is" and "as available" basis, without warranties of any kind, whether express or implied, including merchantability, fitness for a particular purpose and non-infringement.
+        </p>
+        <p class="text-sm sm:text-base text-[#8E8D88] leading-relaxed mt-3" data-i18n="termsP12">
+          Graphics shown on the Site are previews for inspiration. A code may occasionally fail to apply, or an in-game item may be updated by the game developers so that an older code no longer behaves exactly as pictured. We do not control GraalOnline Classic and cannot guarantee that any code will keep working after a game update.
+        </p>
+      </section>
+
+      <!-- 7. Liability -->
+      <section id="terms-liability" class="doc-section fade-item mb-10">
+        <div class="doc-section-title">
+          <span class="w-2.5 h-2.5 rounded-xs bg-[#3B82F6]"></span>
+          <h2 class="font-pixel text-xl sm:text-2xl font-bold text-[#F3F1EC]" data-i18n="termsH7">7. Limitation of Liability</h2>
+        </div>
+        <p class="text-sm sm:text-base text-[#8E8D88] leading-relaxed" data-i18n="termsP13">
+          To the maximum extent permitted by law, Drippy CodeShop and its contributors shall not be liable for any indirect, incidental, special, consequential or punitive damages, nor for any loss of data, accounts, items or progress arising from your use of the Site or the use of the codes it publishes.
+        </p>
+        <p class="text-sm sm:text-base text-[#8E8D88] leading-relaxed mt-3" data-i18n="termsP14">
+          Nothing in these terms excludes liability that cannot lawfully be excluded, including liability for death or personal injury caused by negligence, or for fraud.
+        </p>
+      </section>
+
+      <!-- 8. Privacy -->
+      <section id="terms-privacy" class="doc-section fade-item mb-10">
+        <div class="doc-section-title">
+          <span class="w-2.5 h-2.5 rounded-xs bg-[#3B82F6]"></span>
+          <h2 class="font-pixel text-xl sm:text-2xl font-bold text-[#F3F1EC]" data-i18n="termsH8">8. Privacy</h2>
+        </div>
+        <p class="text-sm sm:text-base text-[#8E8D88] leading-relaxed" data-i18n="termsP15">
+          We collect as little information as possible. The Site stores your language choice and your preferred page size in your browser's local storage so the archive behaves the way you left it. We do not use advertising trackers, and we do not sell or share personal information with third parties.
+        </p>
+        <p class="text-sm sm:text-base text-[#8E8D88] leading-relaxed mt-3" data-i18n="termsP16">
+          Our <a href="privacy.html" data-i18n="termsPrivacyLink">Privacy Policy</a> explains exactly what is stored, why it is stored and how to clear it from your device.
+        </p>
+      </section>
+
+      <!-- 9. Changes -->
+      <section id="terms-changes" class="doc-section fade-item mb-10">
+        <div class="doc-section-title">
+          <span class="w-2.5 h-2.5 rounded-xs bg-[#3B82F6]"></span>
+          <h2 class="font-pixel text-xl sm:text-2xl font-bold text-[#F3F1EC]" data-i18n="termsH9">9. Changes to These Terms</h2>
+        </div>
+        <p class="text-sm sm:text-base text-[#8E8D88] leading-relaxed" data-i18n="termsP17">
+          We may update these terms from time to time, for example when the archive grows or when the community needs clearer rules. The "Last updated" date at the top of this page always reflects the latest revision, and continuing to use the Site after a change means you accept the revised terms.
+        </p>
+      </section>
+
+      <!-- 10. Contact -->
+      <section id="terms-contact" class="doc-section fade-item mb-10">
+        <div class="doc-section-title">
+          <span class="w-2.5 h-2.5 rounded-xs bg-[#3B82F6]"></span>
+          <h2 class="font-pixel text-xl sm:text-2xl font-bold text-[#F3F1EC]" data-i18n="termsH10">10. Contact</h2>
+        </div>
+        <p class="text-sm sm:text-base text-[#8E8D88] leading-relaxed" data-i18n="termsP18">
+          Questions about these terms, takedown requests or credit corrections are always welcome. Reach us on Discord (the handle in the footer), or through the channels linked on our <a href="about.html" data-i18n="termsAboutLink">About page</a>.
+        </p>
+      </section>
+
+      <!-- Related pages -->
+      <div class="fade-item bg-[#1E2025] border border-[#2E3138] rounded-lg p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h3 class="font-pixel text-lg font-bold text-[#F3F1EC] mb-1" data-i18n="termsRelatedTitle">Related pages</h3>
+          <p class="text-sm text-[#8E8D88]" data-i18n="termsRelatedText">Read how we handle your data, or find out who runs the vault.</p>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <a href="privacy.html" class="doc-btn btn-flat inline-flex items-center px-4 py-2 rounded bg-[#3B82F6] hover:bg-[#2563EB] text-[#F3F1EC] font-pixel text-xs" data-i18n="navPrivacy">Privacy Policy</a>
+          <a href="about.html" class="doc-btn btn-flat inline-flex items-center px-4 py-2 rounded bg-[#141518] border border-[#2E3138] hover:border-[#3B82F6] text-[#F3F1EC] font-pixel text-xs" data-i18n="navAbout">About</a>
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </main>
+
+
+  <!-- ==================== FOOTER SECTION ==================== -->
+  <footer id="footer-about" class="bg-[#1E2025] border-t border-[#2E3138] mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-10 border-b border-[#2E3138]">
+
+        <!-- Column 1: About Me -->
+        <div class="fade-item">
+          <div class="flex items-center gap-2.5 mb-3">
+            <span class="w-2.5 h-2.5 rounded-xs bg-[#3B82F6]"></span>
+            <h3 class="font-pixel text-lg font-bold tracking-wide text-[#F3F1EC]" data-i18n="aboutMe">
+              ABOUT ME
+            </h3>
+          </div>
+          <p class="text-sm text-[#8E8D88] leading-relaxed mb-4" data-i18n="aboutText">
+            Hey Graalians! I'm a pixel artist and longtime GraalOnline Classic player curating clean, ready-to-use shield and sword GFX codes so your character always stands out in Battle Arena and Onnet.
+          </p>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="fade-item">
+          <div class="flex items-center gap-2.5 mb-3">
+            <span class="w-2.5 h-2.5 rounded-xs bg-[#F59E0B]"></span>
+            <h3 class="font-pixel text-lg font-bold tracking-wide text-[#F3F1EC]" data-i18n="quickLinks">
+              QUICK LINKS
+            </h3>
+          </div>
+                    <ul class="space-y-2.5 text-sm">
+            <li>
+              <a href="index.html" class="text-[#8E8D88] hover:text-[#F3F1EC] transition-colors flex items-center gap-2">
+            <span class="font-pixel text-[#3B82F6]">&gt;</span> <span data-i18n="navHome">Home</span>
+              </a>
+            </li>
+            <li>
+              <a href="guild.html" class="text-[#8E8D88] hover:text-[#F3F1EC] transition-colors flex items-center gap-2">
+            <span class="font-pixel text-[#3B82F6]">&gt;</span> <span data-i18n="navGuild">Guild</span>
+              </a>
+            </li>
+            <li>
+              <a href="brands.html" class="text-[#8E8D88] hover:text-[#F3F1EC] transition-colors flex items-center gap-2">
+            <span class="font-pixel text-[#3B82F6]">&gt;</span> <span data-i18n="navBrands">Brands</span>
+              </a>
+            </li>
+            <li>
+              <a href="about.html" class="text-[#8E8D88] hover:text-[#F3F1EC] transition-colors flex items-center gap-2">
+            <span class="font-pixel text-[#3B82F6]">&gt;</span> <span data-i18n="navAbout">About</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Legal -->
+        <div class="fade-item">
+          <div class="flex items-center gap-2.5 mb-3">
+            <span class="w-2.5 h-2.5 rounded-xs bg-[#10B981]"></span>
+            <h3 class="font-pixel text-lg font-bold tracking-wide text-[#F3F1EC]" data-i18n="legalTitle">
+              LEGAL
+            </h3>
+          </div>
+          <ul class="space-y-2.5 text-sm">
+            <li>
+              <a href="terms.html" class="text-[#8E8D88] hover:text-[#F3F1EC] transition-colors flex items-center gap-2">
+            <span class="font-pixel text-[#10B981]">&gt;</span> <span data-i18n="navTerms">Terms &amp; Conditions</span>
+              </a>
+            </li>
+            <li>
+              <a href="privacy.html" class="text-[#8E8D88] hover:text-[#F3F1EC] transition-colors flex items-center gap-2">
+            <span class="font-pixel text-[#10B981]">&gt;</span> <span data-i18n="navPrivacy">Privacy Policy</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Follow Me (TikTok & Discord Icons) -->
+        <div class="fade-item">
+          <div class="flex items-center gap-2.5 mb-3">
+            <span class="w-2.5 h-2.5 rounded-xs bg-[#3B82F6]"></span>
+            <h3 class="font-pixel text-lg font-bold tracking-wide text-[#F3F1EC]" data-i18n="followMe">
+              FOLLOW ME
+            </h3>
+          </div>
+          <p class="text-sm text-[#8E8D88] leading-relaxed mb-4" data-i18n="followText">
+            Follow for daily Graal GFX drops, custom upload tutorials, and community code requests.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-3">
+            <!-- TikTok Link Button -->
+            <a
+              href="https://www.tiktok.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow on TikTok"
+              class="btn-flat inline-flex items-center gap-2.5 px-4 py-2.5 rounded bg-[#141518] border border-[#2E3138] hover:border-[#F3F1EC] text-[#F3F1EC] text-sm font-medium transition-colors"
+            >
+              <!-- Crisp Flat TikTok SVG Icon -->
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+              </svg>
+              <span class="font-pixel">TikTok</span>
+            </a>
+
+            <!-- Discord Link / Copy Handle Button -->
+            <button
+              type="button"
+              onclick="copyDiscordTag()"
+              aria-label="Join Discord or copy Discord tag"
+              class="btn-flat inline-flex items-center gap-2.5 px-4 py-2.5 rounded bg-[#141518] border border-[#2E3138] hover:border-[#3B82F6] text-[#F3F1EC] text-sm font-medium transition-colors"
+            >
+              <!-- Crisp Flat Discord SVG Icon -->
+              <svg class="w-4 h-4 fill-current text-[#3B82F6]" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+              </svg>
+              <span class="font-pixel" id="discordBtnLabel">Discord</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Copyright Row -->
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#8E8D88]">
+        <p class="font-pixel">
+          &copy; 2026 DRIPPY CODESHOP // FAN-MADE ARCHIVE FOR GRAALONLINE CLASSIC.
+        </p>
+        <p>
+          Not affiliated with Toonslab or Eurocenter. Pixel sprites crafted for community inspiration.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Shared modules (I18N, drawer, fade reveal, sticky header) -->
+  <script src="js/app.js"></script>
+
+  <!-- Page-specific code for the terms & conditions copy -->
+  <script src="js/terms.js"></script>
+
+</body>
+</html>
+
+

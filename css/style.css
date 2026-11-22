@@ -1,0 +1,1337 @@
+:root {
+      /* Dark Flat Editorial Palette (No Slop, No #000000, No Glow) */
+      --bg-primary: #141518;       /* Warm Obsidian (Body) */
+      --bg-secondary: #1E2025;     /* Elevated Charcoal (Cards) */
+      --text-primary: #F3F1EC;     /* Warm Alabaster Ink */
+      --text-muted: #8E8D88;       /* Warm Pewter */
+      --border-subtle: #2E3138;    /* 1px Flat Divider */
+      --accent-primary: #3B82F6;   /* Crisp Flat Cobalt Blue (5% Accent) */
+      --accent-secondary: #F59E0B; /* Warm Amber */
+
+      /* Active Typography Pairing */
+      --font-primary: 'Pixelify Sans', monospace;
+      --font-secondary: 'Space Grotesk', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-secondary);
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-pixel {
+      font-family: var(--font-primary);
+    }
+
+    .font-editorial {
+      font-family: var(--font-secondary);
+    }
+
+    /* Pixelated Sprite Rendering */
+    .pixel-art {
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+      shape-rendering: crispEdges;
+    }
+
+    /* Subtle Dark Pixel Checkerboard for Sprite Stage */
+    .sprite-stage {
+      background-color: #17191D;
+      background-image:
+        linear-gradient(45deg, #1B1D22 25%, transparent 25%),
+        linear-gradient(-45deg, #1B1D22 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #1B1D22 75%),
+        linear-gradient(-45deg, transparent 75%, #1B1D22 75%);
+      background-size: 16px 16px;
+      background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+    }
+
+    /* Real Graal sprite images (GIF / WebP) inside the card preview.
+       They fill the square 2:2 preview box and are cropped, never stretched.
+       Positioned absolutely so the image can never overflow the box
+       (a percentage height would fall back to the natural image size).
+
+       They start grayscale and light up in full colour on hover. */
+    .sprite-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      image-rendering: auto;
+      filter: grayscale(0.55) brightness(0.92);
+      transition: filter 0.35s ease, transform 0.35s ease;
+    }
+
+    /* Colour + a slight zoom when the card is hovered */
+    .sprite-stage:hover .sprite-image,
+    article:hover .sprite-image,
+    .sprite-stage:focus-visible .sprite-image {
+      filter: grayscale(0) brightness(1);
+      transform: scale(1.04);
+    }
+
+    /* Touch devices have no hover, so keep the images in colour there */
+    @media (hover: none) {
+      .sprite-image {
+        filter: grayscale(0) brightness(1);
+      }
+    }
+
+    /* The card preview box is a fixed square (2:2) */
+    .sprite-stage {
+      aspect-ratio: 1 / 1;
+      height: auto !important;
+    }
+
+    /* Scale the pixel sprite down inside narrow (2-up mobile) cards.
+       Scoped to .pixel-art so it never affects other icons (e.g. the hover chevron). */
+    .sprite-stage .pixel-art {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+
+    /* The SVG fallback also sits centred inside the square preview box */
+    .sprite-stage .pixel-art {
+      max-width: 60%;
+      max-height: 60%;
+    }
+
+    @media (min-width: 640px) {
+      .sprite-stage .pixel-art {
+        width: 6rem;
+        height: 6rem;
+      }
+    }
+
+    /* =========================================================================
+       HERO SECTION BACKGROUND IMAGE + FLAT DARK OBSIDIAN OVERLAY
+       Uses the local GraalOnline Classic screenshot at img/bg.png
+       ========================================================================= */
+    .hero-banner {
+      /* GraalOnline Classic screenshot (local asset) */
+      background-image: url('../img/guild-cover.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      /* Full-bleed hero: column flex so the overlay can grow to fill the banner */
+      display: flex;
+      flex-direction: column;
+      min-height: 70vh;
+    }
+
+    @media (min-width: 640px) {
+      .hero-banner {
+        min-height: 80vh;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .hero-banner {
+        min-height: 90vh;
+      }
+    }
+
+    /* Multi-layered flat dark overlay so foreground pixel text stays super crisp */
+    .hero-overlay {
+      /* Grow to the full height of the banner so the scrim always covers it */
+      flex: 1 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(
+        180deg,
+        rgba(20, 21, 24, 0.74) 0%,
+        rgba(20, 21, 24, 0.82) 55%,
+        rgba(20, 21, 24, 0.95) 100%
+      );
+    }
+
+    /* =========================================================================
+       PLAY GRAALCLASSIC BUTTON (GREEN + GRAAL CLASSIC LOGO BACKGROUND)
+       ========================================================================= */
+    .play-graal-btn {
+      position: relative;
+      isolation: isolate;
+      background-image: url('img/logo.png');
+      background-size: cover;
+      background-position: center right;
+      background-repeat: no-repeat;
+      image-rendering: pixelated;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+    }
+
+    /* Green scrim: solid on the left (label stays legible), fading right
+       so the Graal Classic logo art reads through as texture. */
+    .play-graal-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(
+        90deg,
+        rgba(22, 163, 74, 0.97) 0%,
+        rgba(22, 163, 74, 0.92) 45%,
+        rgba(21, 128, 61, 0.62) 100%
+      );
+    }
+
+    /* =========================================================================
+       CODE DETAIL MODAL — BIG SPRITE VIEW + ZOOM CONTROLS
+       ========================================================================= */
+    .code-modal-stage {
+      background-color: #17191D;
+      background-image:
+        linear-gradient(45deg, #1B1D22 25%, transparent 25%),
+        linear-gradient(-45deg, #1B1D22 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #1B1D22 75%),
+        linear-gradient(-45deg, transparent 75%, #1B1D22 75%);
+      background-size: 16px 16px;
+      background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+    }
+
+    /* Overrides the card-sized .w-24/.h-24 on the injected sprite */
+    .code-modal-stage .pixel-art {
+      display: block;
+      width: 9rem;
+      height: 9rem;
+      max-width: none;
+      image-rendering: pixelated;
+      shape-rendering: crispEdges;
+    }
+
+    /* Real sprite images shown big inside the detail modal.
+       They fill the square preview box edge to edge (no padding around
+       the image) and are cropped, never stretched.
+       The modal preview keeps its original colours — no grayscale there. */
+    .code-modal-stage .modal-sprite-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      image-rendering: auto;
+      filter: none;
+      transform: none;
+    }
+
+    /* The modal preview box is square and the image fills it completely */
+    .code-modal-stage {
+      padding: 0 !important;
+      aspect-ratio: 1 / 1;
+      height: auto !important;
+    }
+
+    @media (min-width: 640px) {
+      .code-modal-stage .pixel-art {
+        width: 13rem;
+        height: 13rem;
+      }
+    }
+
+    /* =========================================================================
+       STICKY NAVIGATION — TRANSPARENT AT TOP, SOLID ON SCROLL
+       ========================================================================= */
+    .site-header {
+      /* Soft top scrim so the nav stays readable over the hero art */
+      background-image: linear-gradient(180deg, rgba(20, 21, 24, 0.72) 0%, rgba(20, 21, 24, 0.35) 60%, transparent 100%);
+      /* No bottom border while the header sits at the top of the page.
+         The `border-b` class was removed from the markup because Tailwind's
+         CDN injects its utilities after this stylesheet and would win.
+         The scrolled state below adds the border back. */
+      border-bottom: none;
+      transition: background-color 0.25s ease, border-color 0.25s ease,
+        backdrop-filter 0.25s ease;
+    }
+
+    /* Scrolled state (added by JS when window.scrollY > threshold) */
+    .site-header.is-scrolled {
+      background-color: rgba(20, 21, 24, 0.92);
+      background-image: none;
+      border-bottom: 1px solid var(--border-subtle);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    /* =========================================================================
+       LANGUAGE SWITCH (EN / ES)
+       ========================================================================= */
+    .lang-btn {
+      background-color: transparent;
+      color: var(--text-muted);
+    }
+
+    .lang-btn:hover {
+      color: var(--text-primary);
+      background-color: #252830;
+    }
+
+    .lang-btn.active {
+      background-color: var(--accent-primary);
+      color: var(--text-primary);
+    }
+
+    /* Flat tactile button press (no shadow blur) */
+    .btn-flat {
+      transition: transform 0.1s ease, background-color 0.15s ease, border-color 0.15s ease;
+    }
+    .btn-flat:active {
+      transform: translateY(1px);
+    }
+
+    /* =========================================================================
+       FADE-IN REVEAL — ONE BY ONE (STAGGERED)
+       Elements carrying `.fade-item` start invisible and are revealed one
+       after another when they scroll into view. The per-element delay is fed
+       through the --fade-delay custom property that JavaScript sets inline.
+       ========================================================================= */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* The `js` class is set on <html> by a tiny inline script in the <head>,
+       so the elements stay visible if JavaScript is disabled or errors out. */
+    .js .fade-item {
+      opacity: 0;
+    }
+
+    .fade-item.is-revealed {
+      animation: fadeInUp 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+      animation-delay: var(--fade-delay, 0ms);
+    }
+
+    /* Respect users who ask for reduced motion: reveal everything instantly */
+    @media (prefers-reduced-motion: reduce) {
+      .js .fade-item {
+        opacity: 1;
+      }
+      .fade-item.is-revealed {
+        animation: none;
+      }
+    }
+
+    /* =========================================================================
+       MOBILE FILTER SHEET
+       The filter card fades out on mobile once it scrolls out of view,
+       and the same card is shown inside a bottom sheet on demand.
+       ========================================================================= */
+    #filterModalBody aside {
+      padding: 0;
+      border: 0;
+      background: transparent;
+    }
+
+    /* The sheet already shows its own header, so hide the sidebar's one */
+    #filterModalBody .filter-panel-header {
+      display: none;
+    }
+
+    /* Fade the filter card out when it leaves the viewport on mobile */
+    @media (max-width: 1023px) {
+      #filterSlot aside.is-faded-out {
+        opacity: 0;
+        transform: translateY(-12px);
+        pointer-events: none;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+    }
+
+    /* =========================================================================
+       CATEGORY BUTTON WATERMARKS
+       Each filter button carries a large, faint pixel-art icon behind it
+       (shield / sword / grid) so the type is readable at a glance.
+       ========================================================================= */
+    .category-btn {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .cat-watermark {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 2.25rem;
+      height: 2.25rem;
+      color: #8e8d88;
+      opacity: 0.14;
+      pointer-events: none;
+      z-index: 0;
+      transition: opacity 0.2s ease, color 0.2s ease;
+    }
+
+    .cat-watermark svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      image-rendering: pixelated;
+      shape-rendering: crispEdges;
+    }
+
+    .category-btn:hover .cat-watermark {
+      opacity: 0.24;
+    }
+
+    .category-btn.active .cat-watermark {
+      color: #f3f1ec;
+      opacity: 0.26;
+    }
+
+    /* Keep the label and the counter above the watermark */
+    .category-btn > span:not(.cat-watermark) {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* The counter gets its own solid chip so it stays readable */
+    .category-btn > span[id^="count"] {
+      background-color: #141518;
+      border-radius: 3px;
+      padding: 0 0.25rem;
+    }
+
+    .category-btn.active > span[id^="count"] {
+      background-color: #1E2025;
+    }
+
+    /* =========================================================================
+       MOBILE DRAWER SIDEBAR
+       Slide-out navigation for small screens. New pages can simply be added
+       as extra <a> links inside #drawerNav (they are styled automatically).
+       ========================================================================= */
+    #mobileDrawer {
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    #mobileDrawer.is-open {
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    /* Dimmed backdrop */
+    #drawerBackdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(20, 21, 24, 0.85);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    #mobileDrawer.is-open #drawerBackdrop {
+      opacity: 1;
+    }
+
+    /* The sliding panel */
+    #drawerPanel {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 17rem;
+      max-width: 82vw;
+      background: #1e2025;
+      border-right: 1px solid #2e3138;
+      transform: translateX(-100%);
+      transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    #mobileDrawer.is-open #drawerPanel {
+      transform: translateX(0);
+    }
+
+    /* Navigation links inside the drawer */
+    #drawerNav a {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.7rem 0.85rem;
+      border-radius: 6px;
+      color: #8e8d88;
+      font-family: var(--font-primary);
+      font-size: 0.8125rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    #drawerNav a:hover {
+      background: #252830;
+      color: #f3f1ec;
+    }
+
+    #drawerNav a.is-current {
+      background: rgba(59, 130, 246, 0.12);
+      color: #f3f1ec;
+      box-shadow: inset 3px 0 0 #3b82f6;
+    }
+
+    #drawerNav a .drawer-icon {
+      width: 1rem;
+      height: 1rem;
+      flex-shrink: 0;
+      color: #f59e0b;
+      transition: color 0.15s ease;
+    }
+
+    /* Each nav item gets its own accent colour */
+    #drawerNav a[data-nav="home"] .drawer-icon {
+      color: #f59e0b;
+    }
+    #drawerNav a[data-nav="guild"] .drawer-icon {
+      color: #a78bfa;
+    }
+
+    #drawerNav a[data-nav="about"] .drawer-icon {
+      color: #10b981;
+    }
+
+    /* New pages: add a rule here to give the icon its own colour */
+    #drawerNav a:hover .drawer-icon,
+    #drawerNav a.is-current .drawer-icon {
+      color: #f3f1ec;
+    }
+
+    /* Hamburger button */
+    #drawerToggle .hamburger-line {
+      display: block;
+      width: 1.125rem;
+      height: 2px;
+      background: #f3f1ec;
+      border-radius: 2px;
+      transition: transform 0.25s ease, opacity 0.2s ease;
+    }
+
+    #drawerToggle.is-open .hamburger-line:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    #drawerToggle.is-open .hamburger-line:nth-child(2) {
+      opacity: 0;
+    }
+
+    #drawerToggle.is-open .hamburger-line:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-primary);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--border-subtle);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--text-muted);
+    }
+/* =========================================================================
+       GUILD PAGE
+       Hero banner + member roster cards
+       ========================================================================= */
+    .guild-banner {
+      background-image: url('../img/guild-cover.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      /* Column flex so the overlay can grow to fill the whole banner */
+      display: flex;
+      flex-direction: column;
+      min-height: 60vh;
+    }
+
+    .guild-overlay {
+      /* Grow to the full height of the banner so the scrim always covers it */
+      flex: 1 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(
+        180deg,
+        rgba(20, 21, 24, 0.74) 0%,
+        rgba(20, 21, 24, 0.82) 55%,
+        rgba(20, 21, 24, 0.95) 100%
+      );
+    }
+
+    /* Member avatar frame (dark pixel checkerboard) */
+    .avatar-frame {
+      background-color: #17191D;
+      background-image:
+        linear-gradient(45deg, #1B1D22 25%, transparent 25%),
+        linear-gradient(-45deg, #1B1D22 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #1B1D22 75%),
+        linear-gradient(-45deg, transparent 75%, #1B1D22 75%);
+      background-size: 16px 16px;
+      background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+    }
+
+    /* =========================================================================
+       MEMBER ROSTER CARDS
+       A horizontal "profile strip" layout: big pixel avatar on the left,
+       name + role in the middle, and a role crest on the right.
+       ========================================================================= */
+    .member-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+      transition: border-color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .member-card:hover {
+      transform: translateY(-4px);
+      background-color: #22252B;
+    }
+
+    /* Big pixel avatar block, centred */
+    .member-avatar {
+      width: 5rem;
+      height: 5rem;
+      border-radius: 8px;
+      border: 1px solid #2E3138;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    @media (min-width: 640px) {
+      .member-avatar {
+        width: 6rem;
+        height: 6rem;
+      }
+    }
+
+    .member-card:hover .member-avatar {
+      border-color: currentColor;
+      transform: scale(1.04);
+    }
+
+    .member-avatar span {
+      font-family: var(--font-primary);
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    /* Online dot pinned to the avatar corner */
+    .member-status {
+      position: absolute;
+      right: -4px;
+      bottom: -4px;
+      width: 0.9rem;
+      height: 0.9rem;
+      border-radius: 9999px;
+      border: 2px solid #1E2025;
+    }
+
+    .member-avatar span,
+    .member-card {
+      transition: transform 0.2s ease;
+    }
+/* =========================================================================
+       MEMBER CARD COVER
+       Each member card is topped with their sprite as a cover image.
+       ========================================================================= */
+    .member-cover {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      overflow: visible;
+      background-color: #17191D;
+    }
+
+    /* Inner wrapper clips the zoomed image to the cover area */
+    .member-cover-img {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      border-radius: 0.5rem 0.5rem 0 0;
+    }
+
+    .member-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      filter: grayscale(0.55) brightness(0.9);
+      transition: filter 0.35s ease, transform 0.45s ease;
+    }
+
+    /* Darken the bottom so the name stays readable */
+    .member-cover-scrim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(20, 21, 24, 0.15) 0%,
+        rgba(20, 21, 24, 0.45) 55%,
+        rgba(30, 32, 37, 0.96) 100%
+      );
+      pointer-events: none;
+    }
+
+    /* Hover: full colour + slow zoom */
+    .member-card:hover .member-cover img {
+      filter: grayscale(0) brightness(1);
+      transform: scale(1.07);
+    }
+
+    /* Avatar badge sits over the bottom edge of the cover */
+    .member-cover .member-avatar {
+      position: absolute;
+      left: 50%;
+      bottom: -1.25rem;
+      transform: translateX(-50%);
+      z-index: 2;
+      border-color: #1E2025;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+    }
+
+    .member-card:hover .member-cover .member-avatar {
+      transform: translateX(-50%) scale(1.04);
+    }
+
+    /* Card body below the cover */
+    .member-card > h3 {
+      margin: 1.75rem 1rem 0;
+    }
+
+    .member-card > p {
+      margin: 0.375rem 1rem 1rem;
+    }
+
+/* Cover banner inside the member profile modal */
+    .member-modal-cover {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 7;
+      overflow: hidden;
+      border-radius: 0.5rem;
+      background-color: #17191D;
+      margin-left: -0.5rem;
+      margin-right: -0.5rem;
+    }
+
+    .member-modal-cover .member-cover-img {
+      border-radius: 0.5rem;
+    }
+
+    .member-modal-cover img {
+      filter: grayscale(0.35) brightness(0.95);
+    }
+
+    /* =========================================================================
+       BRANDS PAGE
+       A brand directory with a simple hero and a profile modal that shows
+       the brand's art.
+       ========================================================================= */
+    .brand-banner {
+      /* Simple hero background, the same one the home page uses */
+      background-image: url('../img/bg.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      /* Column flex so the overlay can grow to fill the whole banner */
+      display: flex;
+      flex-direction: column;
+      min-height: 55vh;
+    }
+
+    .brand-overlay {
+      /* Grow to the full height of the banner so the scrim always covers it */
+      flex: 1 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(
+        180deg,
+        rgba(20, 21, 24, 0.74) 0%,
+        rgba(20, 21, 24, 0.82) 55%,
+        rgba(20, 21, 24, 0.95) 100%
+      );
+    }
+
+    @media (min-width: 1024px) {
+      .brand-banner {
+        min-height: 65vh;
+      }
+    }
+
+    /* -------------------------------------------------------------------------
+       BRAND CARDS
+       ------------------------------------------------------------------------- */
+    .brand-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .brand-card:hover {
+      transform: translateY(-4px);
+      background-color: #22252B;
+    }
+
+    .brand-cover {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      overflow: visible;
+      background-color: #17191D;
+    }
+
+    /* Inner wrapper clips the zoomed image to the cover area */
+    .brand-cover-img {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      border-radius: 0.5rem 0.5rem 0 0;
+    }
+
+    .brand-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      filter: grayscale(0.55) brightness(0.9);
+      transition: filter 0.35s ease, transform 0.45s ease;
+    }
+
+    .brand-card:hover .brand-cover img {
+      filter: grayscale(0) brightness(1);
+      transform: scale(1.07);
+    }
+
+    /* Darken the bottom so the name stays readable */
+    .brand-cover-scrim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(20, 21, 24, 0.15) 0%,
+        rgba(20, 21, 24, 0.45) 55%,
+        rgba(30, 32, 37, 0.96) 100%
+      );
+      pointer-events: none;
+    }
+
+
+    /* -------------------------------------------------------------------------
+       BRAND AVATAR (badge over the cover, plus the animated sprite)
+       ------------------------------------------------------------------------- */
+    .brand-avatar {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      z-index: 2;
+    }
+
+    /* Avatar badge sits over the bottom edge of the cover */
+    .brand-avatar-badge {
+      position: absolute;
+      left: 50%;
+      bottom: -1.25rem;
+      transform: translateX(-50%);
+      border-radius: 8px;
+      border: 1px solid #2E3138;
+      background-color: #17191D;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .brand-card:hover .brand-avatar-badge {
+      transform: translateX(-50%) scale(1.04);
+      border-color: var(--brand-color);
+    }
+
+    /* Avatar overlapping the profile banner */
+    .brand-avatar-modal {
+      width: 96px;
+      height: 96px;
+      margin: -2.5rem auto 0;
+      border-radius: 8px;
+      border: 1px solid #2E3138;
+      background-color: #17191D;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+    }
+
+    /* -------------------------------------------------------------------------
+       ANIMATED PIXEL SPRITE
+       The source image is a vertical strip (32x560) made of 20 cells of
+       32x28. Scrolling the background-position walks through the cells
+       and produces a seamless looping pixel animation.
+       ------------------------------------------------------------------------- */
+    .brand-sprite {
+      width: 96px;
+      height: 84px;
+      background-repeat: no-repeat;
+      image-rendering: pixelated;
+      background-position: 0 0;
+      background-size: 96px 1680px; /* the 560px strip scaled 3x */
+      animation: brand-sprite-scroll 2.4s steps(20) infinite;
+    }
+
+    @keyframes brand-sprite-scroll {
+      from {
+        background-position: 0 0;
+      }
+      to {
+        background-position: 0 -1680px;
+      }
+    }
+
+    /* -------------------------------------------------------------------------
+       BRAND PROFILE MODAL
+       ------------------------------------------------------------------------- */
+    .brand-modal-banner {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 7;
+      overflow: hidden;
+      border-radius: 0.5rem;
+      background-color: #17191D;
+      margin-left: -0.5rem;
+      margin-right: -0.5rem;
+    }
+
+    .brand-modal-banner .brand-cover-img {
+      border-radius: 0.5rem;
+    }
+
+    .brand-modal-banner .brand-cover img {
+      filter: grayscale(0.35) brightness(0.95);
+    }
+
+    /* -------------------------------------------------------------------------
+       BRAND ART GALLERY
+       ------------------------------------------------------------------------- */
+    .brand-art-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .brand-art-item {
+      margin: 0;
+      border: 1px solid #2E3138;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      background-color: #141518;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .brand-art-item:hover {
+      border-color: var(--brand-color, #3B82F6);
+      transform: translateY(-2px);
+    }
+
+    .brand-art-item img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+      image-rendering: pixelated;
+    }
+
+    .brand-art-item figcaption {
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #8E8D88;
+      padding: 0.4rem 0.5rem;
+      text-align: center;
+      border-top: 1px solid #2E3138;
+    }
+
+    .brand-card-body {
+      padding: 1.75rem 1rem 1rem;
+    }
+
+    .brand-card-tagline {
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #8E8D88;
+      margin-top: 0.375rem;
+    }
+
+    .brand-card-role {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 0.5rem;
+    }
+
+    /* =========================================================================
+       ARTIST ART PAGE
+       The large tiles used on a dedicated artwork page (e.g. mikasa.html).
+       ========================================================================= */
+
+    /* The header block: the profile picture overlaps the divider below it
+       so it looks like it is popping out of the section. */
+    .art-profile {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      /* Extra room at the bottom so the picture can hang over the divider */
+      padding-bottom: 3.5rem;
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid #2e3138;
+    }
+
+    @media (min-width: 640px) {
+      .art-profile {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 1.25rem;
+      }
+    }
+
+    /* The profile picture itself.
+       It is anchored to the bottom of the header block so that it hangs
+       over the divider line, exactly like a profile photo that pops out
+       of the section. */
+    .art-profile-avatar {
+      position: absolute;
+      left: 0;
+      bottom: -3rem;
+      width: 6rem;
+      height: 6rem;
+      border-radius: 8px;
+      border: 2px solid #141518;
+      background-color: #17191d;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .art-profile-avatar .brand-sprite {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* The animated GIF shown inside the profile picture */
+    .art-profile-img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      image-rendering: pixelated;
+    }
+
+    @media (max-width: 639px) {
+      /* On phones it sits above the copy instead of overlapping it */
+      .art-profile-avatar {
+        position: static;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    .mikasa-art-item {
+      margin: 0;
+      border: 1px solid #2E3138;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      background-color: #1E2025;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .mikasa-art-item:hover {
+      border-color: #ef4444;
+      transform: translateY(-3px);
+    }
+
+    .mikasa-art-item img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      image-rendering: pixelated;
+      background-color: #141518;
+    }
+
+    /* The animated sprite sheet is a tall strip, so it is shown in full
+       instead of being cropped into a square. */
+    .mikasa-art-item img.is-sprite {
+      aspect-ratio: auto;
+      height: auto;
+      object-fit: contain;
+      image-rendering: pixelated;
+    }
+
+    .mikasa-art-item figcaption {
+      padding: 0.75rem 1rem;
+      border-top: 1px solid #2E3138;
+      background-color: #141518;
+    }
+
+    /* =========================================================================
+       STATIC CONTENT PAGES
+       Shared shell for terms.html, privacy.html and about.html:
+       a flat page banner plus the long-form reading column.
+       ========================================================================= */
+    .page-banner {
+      background-image: url('../img/guild-cover.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      /* Column flex so the overlay can grow to fill the whole banner */
+      display: flex;
+      flex-direction: column;
+      /* Landscape shape: wider than tall on every screen size */
+      aspect-ratio: 16 / 6;
+      max-height: 46vh;
+    }
+
+    .page-overlay {
+      /* Grow to the full height of the banner so the scrim always covers it */
+      flex: 1 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(
+        180deg,
+        rgba(20, 21, 24, 0.74) 0%,
+        rgba(20, 21, 24, 0.82) 55%,
+        rgba(20, 21, 24, 0.95) 100%
+      );
+    }
+
+    /* On small screens the banner gets shorter so it never eats the page */
+    @media (max-width: 639px) {
+      .page-banner {
+        aspect-ratio: 16 / 8;
+        max-height: 36vh;
+      }
+    }
+
+    /* The reading column that holds the legal / about copy */
+    .doc-column {
+      max-width: 52rem;
+    }
+
+    /* The legal pages use the reading column as the right-hand side of a
+       two column grid, so it must be allowed to fill that track. */
+    .grid .doc-column {
+      max-width: none;
+    }
+
+    /* Numbered + lettered section blocks inside the reading column */
+    .doc-section {
+      scroll-margin-top: 6rem;
+    }
+
+    .doc-section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Flat panel used for the "key points" cards on the about page */
+    .info-card {
+      transition: border-color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .info-card:hover {
+      transform: translateY(-3px);
+      border-color: #8E8D88;
+      background-color: #22252B;
+    }
+
+    /* Inline links inside the reading column keep the accent colour */
+    .doc-column a:not(.doc-btn) {
+      color: #3B82F6;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.15s ease;
+    }
+
+    .doc-column a:not(.doc-btn):hover {
+      color: #F3F1EC;
+    }
+
+    /* =========================================================================
+       STICKY TABLE OF CONTENTS
+       On the legal pages the table of contents lives in a left rail that
+       stays on screen while the reader scrolls through the sections.
+       Below the lg breakpoint it simply stacks above the copy again.
+       ========================================================================= */
+    .doc-toc {
+      scroll-margin-top: 6rem;
+    }
+
+    @media (min-width: 1024px) {
+      .doc-toc {
+        /* Follow the reader, but never grow past the viewport.
+           `align-self: start` is required inside a grid: without it the
+           item stretches to the full row height and sticky stops working. */
+        align-self: start;
+        position: sticky;
+        top: 6rem;
+        max-height: calc(100vh - 7rem);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+      }
+
+      /* A slim scrollbar that matches the rest of the site */
+      .doc-toc::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      .doc-toc::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      .doc-toc::-webkit-scrollbar-thumb {
+        background: #2E3138;
+        border-radius: 3px;
+      }
+
+      .doc-toc::-webkit-scrollbar-thumb:hover {
+        background: #8E8D88;
+      }
+    }
+
+    /* The TOC links start muted and light up when they are hovered ... */
+    .doc-toc a {
+      color: #8E8D88;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .doc-toc a:hover {
+      color: #F3F1EC;
+    }
+
+    /* ... and the entry for the section currently on screen stays lit */
+    .doc-toc a.is-active {
+      color: #F3F1EC;
+      font-weight: 600;
+    }
+
+    /* Small accent bar on the active entry */
+    .doc-toc a.is-active::before {
+      content: ">";
+      color: #3B82F6;
+      margin-right: 0.35rem;
+    }
+
+    /* =========================================================================
+       SAVED CODES
+       The bookmark button that sits on every code card, and the small
+       counter badge that shows how many codes are saved in the browser.
+       ========================================================================= */
+
+    /* Bookmark button on a code card / in the code modal */
+    .save-btn {
+      color: #8E8D88;
+      background-color: #141518;
+      border: 1px solid #2E3138;
+      transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease,
+        transform 0.1s ease;
+    }
+
+    .save-btn:hover {
+      color: #f3f1ec;
+      border-color: #3b82f6;
+    }
+
+    .save-btn:active {
+      transform: translateY(1px);
+    }
+
+    /* The saved state: amber bookmark on a warm background.
+       `!important` is needed because the Tailwind CDN injects its
+       utilities after this stylesheet. */
+    .save-btn.is-saved {
+      color: #f59e0b !important;
+      border-color: #f59e0b !important;
+      background-color: rgba(245, 158, 11, 0.12) !important;
+    }
+
+    .save-btn.is-saved:hover {
+      color: #fbbf24 !important;
+      border-color: #fbbf24 !important;
+    }
+
+    /* The bookmark path is filled by JavaScript: an outline when the code is
+       not saved, a solid shape once it is. The `fill` attribute on the path
+       always wins over CSS, so it is toggled in JS instead. */
+    .save-btn svg path {
+      transition: fill 0.15s ease;
+    }
+
+    /* Make sure nothing else can override the filled shape */
+    .save-btn.is-saved svg path {
+      fill: currentColor !important;
+    }
+
+    /* The counter badge that sits on the corner of the saved-codes button */
+    .saved-badge {
+      min-width: 1.15rem;
+      height: 1.15rem;
+      padding: 0 0.25rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-primary);
+      font-size: 10px;
+      line-height: 1;
+      font-weight: 700;
+      color: var(--text-primary);
+      background-color: #f59e0b;
+      border-radius: 9999px;
+    }
+
+    /* On the square navigation button the badge overlaps the corner */
+    .saved-badge.absolute {
+      box-shadow: 0 0 0 2px #141518;
+    }
+
+
