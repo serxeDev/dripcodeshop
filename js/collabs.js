@@ -1,15 +1,15 @@
 /**
  * ============================================================
- * PAGE-SPECIFIC TRANSLATIONS (Brands)
+ * PAGE-SPECIFIC TRANSLATIONS (Collabs)
  * ============================================================
  */
 I18N.addDict({
   en: {
-    meta: { title: "Drippy CodeShop // Brands" },
+    meta: { title: "Drippy CodeShop // Collabs" },
     tagline: "Classic GFX Vault",
     navHome: "Home",
     navGuild: "Guild",
-    navBrands: "Brands",
+    navCollabs: "Collabs",
     navAbout: "About",
     navSaved: "Saved",
     saveLabel: "Save this code",
@@ -20,21 +20,21 @@ I18N.addDict({
     navTerms: "Terms & Conditions",
     navPrivacy: "Privacy Policy",
     language: "Language",
-    brandsTitle: "The Artists Behind The Vault",
-    brandsSubtitle:
-      "Every brand in the archive brings its own style, signature art and story.",
-    brandsRoster: "Featured Brands",
-    brandEmptyTitle: "No brands found",
-    brandEmptyText: "Try a different name or tag.",
-    brandReset: "RESET",
-    brandSearchPlaceholder: "Search brand...",
-    brandRole: "Role",
-    brandSince: "Since",
-    brandArt: "Signature Art",
-    brandArtEmpty: "No art uploaded yet.",
-    brandArtCount: "art pieces",
-    brandSocials: "Socials",
-    brandFeatured: "FEATURED",
+    collabsTitle: "The Collabs Behind The Vault",
+    collabsSubtitle:
+      "Every collab in the archive brings its own style, signature art and story.",
+    collabsRoster: "Featured Collabs",
+    collabEmptyTitle: "No collabs found",
+    collabEmptyText: "Try a different name or tag.",
+    collabReset: "RESET",
+    collabSearchPlaceholder: "Search collab...",
+    collabRole: "Role",
+    collabSince: "Since",
+    collabArt: "Signature Art",
+    collabArtEmpty: "No art uploaded yet.",
+    collabArtCount: "art pieces",
+    collabSocials: "Socials",
+    collabFeatured: "FEATURED",
 
     // Footer (shared across every page)
     aboutMe: "ABOUT ME",
@@ -46,7 +46,7 @@ I18N.addDict({
     followText:
       "Follow for daily Graal GFX drops, custom upload tutorials, and community code requests.",
 
-    brands: {
+    collabs: {
       mikasa: {
         name: "Mikasa",
         tagline: "Crimson Hood Studio",
@@ -85,11 +85,11 @@ I18N.addDict({
     },
   },
   es: {
-    meta: { title: "Drippy CodeShop // Marcas" },
+    meta: { title: "Drippy CodeShop // Colabs" },
     tagline: "Bóveda de GFX Clásicos",
     navHome: "Inicio",
     navGuild: "Gremio",
-    navBrands: "Marcas",
+    navCollabs: "Colabs",
     navAbout: "Sobre mí",
     navSaved: "Guardados",
     saveLabel: "Guardar este código",
@@ -100,21 +100,21 @@ I18N.addDict({
     navTerms: "Términos y Condiciones",
     navPrivacy: "Política de Privacidad",
     language: "Idioma",
-    brandsTitle: "Los Artistas Detrás de la Bóveda",
-    brandsSubtitle:
-      "Cada marca del archivo trae su propio estilo, arte exclusivo e historia.",
-    brandsRoster: "Marcas Destacadas",
-    brandEmptyTitle: "No se encontraron marcas",
-    brandEmptyText: "Prueba con otro nombre o etiqueta.",
-    brandReset: "REINICIAR",
-    brandSearchPlaceholder: "Buscar marca...",
-    brandRole: "Rol",
-    brandSince: "Desde",
-    brandArt: "Arte Exclusivo",
-    brandArtEmpty: "Aún no hay arte subido.",
-    brandArtCount: "piezas de arte",
-    brandSocials: "Redes",
-    brandFeatured: "DESTACADO",
+    collabsTitle: "Los Colabs Detrás de la Bóveda",
+    collabsSubtitle:
+      "Cada collab del archivo trae su propio estilo, arte exclusivo e historia.",
+    collabsRoster: "Colabs Destacados",
+    collabEmptyTitle: "No se encontraron colabs",
+    collabEmptyText: "Prueba con otro nombre o etiqueta.",
+    collabReset: "REINICIAR",
+    collabSearchPlaceholder: "Buscar colab...",
+    collabRole: "Rol",
+    collabSince: "Desde",
+    collabArt: "Arte Exclusivo",
+    collabArtEmpty: "Aún no hay arte subido.",
+    collabArtCount: "piezas de arte",
+    collabSocials: "Redes",
+    collabFeatured: "DESTACADO",
 
     // Footer (shared across every page)
     aboutMe: "SOBRE MÍ",
@@ -126,7 +126,7 @@ I18N.addDict({
     followText:
       "Sígueme para lanzamientos diarios de GFX de Graal, tutoriales de subidas y peticiones de códigos de la comunidad.",
 
-    brands: {
+    collabs: {
       mikasa: {
         name: "Mikasa",
         tagline: "Estudio de Capucha Carmesí",
@@ -168,21 +168,21 @@ I18N.addDict({
 
 /**
  * ============================================================
- * BRAND DATA
- * Edit this array to add, remove or update brands.
+ * COLLAB DATA
+ * Edit this array to add, remove or update collabs.
  *   id        unique slug
  *   name      display name
- *   tagline   short brand label
+ *   tagline   short collab label
  *   role      job title inside the vault
  *   since     founding year
  *   bio       description shown in the profile
  *   color     accent colour (avatar, role text, glow)
- *   cover     hero background image for this brand
+ *   cover     hero background image for this collab
  *   head      avatar image (optional)
  *   sprite    animated sprite sheet (optional) -> see SPRITE notes
  *   art       list of gallery images
  *   artPage   dedicated artwork page (optional). When set, clicking the
- *             brand card opens that page instead of the profile modal.
+ *             collab card opens that page instead of the profile modal.
  *   handle    social handle used for the profile links
  *   email     contact address used for the mail link
  * ============================================================
@@ -193,7 +193,7 @@ I18N.addDict({
  * 32x28). The CSS animates the background-position so the strip
  * scrolls through the cells, giving a looping pixel animation.
  */
-const brands = [
+const collabs = [
   {
     id: "mikasa",
     name: "Mikasa",
@@ -203,14 +203,14 @@ const brands = [
     avatar: "MK",
     color: "#EF4444",
     bio: "Mysterious hooded silhouettes and crimson accents. Mikasa paints the dark corners of the vault where the rare drops live.",
-    cover: "img/brands/cover-mikasa.png",
-    head: "img/brands/head-mikasa.png",
-    sprite: "img/brands/sprite-mikasa.png",
+    cover: "img/collabs/cover-mikasa.png",
+    head: "img/collabs/head-mikasa.png",
+    sprite: "img/collabs/sprite-mikasa.png",
     artPage: "mikasa.html",
     art: [
-      { src: "img/brands/art-mikasa-1.png", title: "Hood Study" },
-      { src: "img/brands/art-mikasa-2.png", title: "Crimson Banner" },
-      { src: "img/brands/art-mikasa-3.png", title: "Night Patrol" },
+      { src: "img/collabs/art-mikasa-1.png", title: "Hood Study" },
+      { src: "img/collabs/art-mikasa-2.png", title: "Crimson Banner" },
+      { src: "img/collabs/art-mikasa-3.png", title: "Night Patrol" },
     ],
     handle: "mikasa",
     email: "mikasa@drippycodes.com",
@@ -224,11 +224,11 @@ const brands = [
     avatar: "KZ",
     color: "#F59E0B",
     bio: "Smooth curves, clean curves and no jagged edges. If it can be smoothed, Kizzu has already smoothed it.",
-    cover: "img/brands/cover-kizzu.png",
+    cover: "img/collabs/cover-kizzu.png",
     art: [
-      { src: "img/brands/art-kizzu-1.png", title: "Round Buckler" },
-      { src: "img/brands/art-kizzu-2.png", title: "Orchard Path" },
-      { src: "img/brands/art-kizzu-3.png", title: "Shop Front" },
+      { src: "img/collabs/art-kizzu-1.png", title: "Round Buckler" },
+      { src: "img/collabs/art-kizzu-2.png", title: "Orchard Path" },
+      { src: "img/collabs/art-kizzu-3.png", title: "Shop Front" },
     ],
     handle: "kizzu",
     email: "kizzu@drippycodes.com",
@@ -242,11 +242,11 @@ const brands = [
     avatar: "SB",
     color: "#A78BFA",
     bio: "Night-time blade work and stealthy silhouettes. Rarely seen in daylight, always busy drawing.",
-    cover: "img/brands/cover-shadowbyte.png",
+    cover: "img/collabs/cover-shadowbyte.png",
     art: [
-      { src: "img/brands/art-shadowbyte-1.png", title: "Blue Hour" },
-      { src: "img/brands/art-shadowbyte-2.png", title: "Quiet Corner" },
-      { src: "img/brands/art-shadowbyte-3.png", title: "Stone Steps" },
+      { src: "img/collabs/art-shadowbyte-1.png", title: "Blue Hour" },
+      { src: "img/collabs/art-shadowbyte-2.png", title: "Quiet Corner" },
+      { src: "img/collabs/art-shadowbyte-3.png", title: "Stone Steps" },
     ],
     handle: "shadowbyte",
     email: "shadowbyte@drippycodes.com",
@@ -260,11 +260,11 @@ const brands = [
     avatar: "PC",
     color: "#10B981",
     bio: "Cute sprites, deadly blades. Keeps every mascot in the archive looking sharp and huggable.",
-    cover: "img/brands/cover-pochita.png",
+    cover: "img/collabs/cover-pochita.png",
     art: [
-      { src: "img/brands/art-pochita-1.png", title: "Bloom Field" },
-      { src: "img/brands/art-pochita-2.png", title: "Market Day" },
-      { src: "img/brands/art-pochita-3.png", title: "Sunny Path" },
+      { src: "img/collabs/art-pochita-1.png", title: "Bloom Field" },
+      { src: "img/collabs/art-pochita-2.png", title: "Market Day" },
+      { src: "img/collabs/art-pochita-3.png", title: "Sunny Path" },
     ],
     handle: "pochita",
     email: "pochita@drippycodes.com",
@@ -278,11 +278,11 @@ const brands = [
     avatar: "GR",
     color: "#94A3B8",
     bio: "Runs the seasonal events and the spooky drops. Collects bones, ships limited-time codes.",
-    cover: "img/brands/cover-grimreaper.png",
+    cover: "img/collabs/cover-grimreaper.png",
     art: [
-      { src: "img/brands/art-grimreaper-1.png", title: "Stone Hall" },
-      { src: "img/brands/art-grimreaper-2.png", title: "Quiet Path" },
-      { src: "img/brands/art-grimreaper-3.png", title: "Old Ruins" },
+      { src: "img/collabs/art-grimreaper-1.png", title: "Stone Hall" },
+      { src: "img/collabs/art-grimreaper-2.png", title: "Quiet Path" },
+      { src: "img/collabs/art-grimreaper-3.png", title: "Old Ruins" },
     ],
     handle: "grimreaper",
     email: "grimreaper@drippycodes.com",
@@ -294,114 +294,114 @@ const brands = [
  * DOM REFERENCES
  * ============================================================
  */
-const brandGrid = document.getElementById("brandGrid");
-const brandEmpty = document.getElementById("brandEmpty");
-const brandSearch = document.getElementById("brandSearch");
-const brandHero = document.getElementById("brandHero");
-const brandModal = document.getElementById("brandModal");
-const brandProfile = document.getElementById("brandProfile");
+const collabGrid = document.getElementById("collabGrid");
+const collabEmpty = document.getElementById("collabEmpty");
+const collabSearch = document.getElementById("collabSearch");
+const collabHero = document.getElementById("collabHero");
+const collabModal = document.getElementById("collabModal");
+const collabProfile = document.getElementById("collabProfile");
 
-/** Currently active brand (drives the hero). */
-let activeBrandId = null;
+/** Currently active collab (drives the hero). */
+let activeCollabId = null;
 /** Current search term. */
-let brandQuery = "";
+let collabQuery = "";
 
-/** Look up a brand by id. */
-function getBrand(id) {
-  return brands.find((b) => b.id === id);
+/** Look up a collab by id. */
+function getCollab(id) {
+  return collabs.find((b) => b.id === id);
 }
 
-/** Translated brand fields (fall back to the raw data). */
-function brandName(brand) {
-  return I18N.t("brands." + brand.id + ".name", brand.name);
+/** Translated collab fields (fall back to the raw data). */
+function collabName(collab) {
+  return I18N.t("collabs." + collab.id + ".name", collab.name);
 }
 
-function brandTagline(brand) {
-  return I18N.t("brands." + brand.id + ".tagline", brand.tagline);
+function collabTagline(collab) {
+  return I18N.t("collabs." + collab.id + ".tagline", collab.tagline);
 }
 
-function brandRole(brand) {
-  return I18N.t("brands." + brand.id + ".role", brand.role);
+function collabRole(collab) {
+  return I18N.t("collabs." + collab.id + ".role", collab.role);
 }
 
-function brandBio(brand) {
-  return I18N.t("brands." + brand.id + ".bio", brand.bio);
+function collabBio(collab) {
+  return I18N.t("collabs." + collab.id + ".bio", collab.bio);
 }
 
-function brandSince(brand) {
-  return I18N.t("brands." + brand.id + ".since", brand.since);
+function collabSince(collab) {
+  return I18N.t("collabs." + collab.id + ".since", collab.since);
 }
 
 /**
- * The avatar block for a brand.
- * Uses the animated sprite when the brand has one, otherwise the
+ * The avatar block for a collab.
+ * Uses the animated sprite when the collab has one, otherwise the
  * pixel-letter badge.
  */
-function brandAvatar(brand, extraClass = "") {
-  if (brand.sprite) {
+function collabAvatar(collab, extraClass = "") {
+  if (collab.sprite) {
     return `
-      <div class="brand-avatar ${extraClass}" style="--brand-color:${brand.color}">
+      <div class="collab-avatar ${extraClass}" style="--collab-color:${collab.color}">
         <div
-          class="brand-sprite"
-          style="background-image:url('${brand.sprite}')"
+          class="collab-sprite"
+          style="background-image:url('${collab.sprite}')"
           role="img"
-          aria-label="${brandName(brand)}"
+          aria-label="${collabName(collab)}"
         ></div>
       </div>
     `;
   }
 
   return `
-    <div class="avatar-frame brand-avatar ${extraClass}" style="--brand-color:${brand.color}">
-      <span style="color:${brand.color}">${brand.avatar}</span>
+    <div class="avatar-frame collab-avatar ${extraClass}" style="--collab-color:${collab.color}">
+      <span style="color:${collab.color}">${collab.avatar}</span>
     </div>
   `;
 }
 
-/** Render the grid of brand cards. */
-function renderBrands() {
-  if (!brandGrid) return;
+/** Render the grid of collab cards. */
+function renderCollabs() {
+  if (!collabGrid) return;
 
-  const q = brandQuery.trim().toLowerCase();
+  const q = collabQuery.trim().toLowerCase();
 
-  const filtered = brands.filter((brand) => {
+  const filtered = collabs.filter((collab) => {
     if (!q) return true;
     return (
-      brand.name.toLowerCase().includes(q) ||
-      brand.tagline.toLowerCase().includes(q) ||
-      brand.role.toLowerCase().includes(q) ||
-      brand.bio.toLowerCase().includes(q)
+      collab.name.toLowerCase().includes(q) ||
+      collab.tagline.toLowerCase().includes(q) ||
+      collab.role.toLowerCase().includes(q) ||
+      collab.bio.toLowerCase().includes(q)
     );
   });
 
   if (filtered.length === 0) {
-    brandGrid.innerHTML = "";
-    if (brandEmpty) brandEmpty.classList.remove("hidden");
+    collabGrid.innerHTML = "";
+    if (collabEmpty) collabEmpty.classList.remove("hidden");
     return;
   }
-  if (brandEmpty) brandEmpty.classList.add("hidden");
+  if (collabEmpty) collabEmpty.classList.add("hidden");
 
-  brandGrid.innerHTML = filtered
+  collabGrid.innerHTML = filtered
     .map(
-      (brand) => `
+      (collab) => `
             <button
               type="button"
-              onclick="${brand.artPage ? `window.location.href='${brand.artPage}'` : `openBrandModal('${brand.id}')`}"
-              class="brand-card fade-item w-full bg-[#1E2025] border border-[#2E3138] hover:border-[#8E8D88] rounded-lg overflow-hidden text-left"
-              style="--brand-color:${brand.color}"
+              onclick="${collab.artPage ? `window.location.href='${collab.artPage}'` : `openCollabModal('${collab.id}')`}"
+              class="collab-card fade-item w-full bg-[#1E2025] border border-[#2E3138] hover:border-[#8E8D88] rounded-lg overflow-hidden text-left"
+              style="--collab-color:${collab.color}"
             >
-              <div class="brand-cover">
-                <div class="brand-cover-img">
-                  <img src="${brand.cover}" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+              <div class="collab-cover">
+                <div class="collab-cover-img">
+                  <img src="${collab.cover}" alt="" aria-hidden="true" loading="lazy" decoding="async" />
                 </div>
-                <div class="brand-cover-scrim"></div>
-                ${brandAvatar(brand, "brand-avatar-badge")}
+                <div class="collab-cover-scrim"></div>
+                ${collabAvatar(collab, "collab-avatar-badge")}
               </div>
 
-              <div class="brand-card-body">
-                <h3 class="font-pixel text-base font-bold text-[#F3F1EC] truncate">${brandName(brand)}</h3>
-                <p class="brand-card-tagline truncate">${brandTagline(brand)}</p>
-                <p class="brand-card-role truncate" style="color:${brand.color}">${brandRole(brand)}</p>
+              <div class="collab-card-body">
+                <h3 class="font-pixel text-base font-bold text-[#F3F1EC] truncate">${collabName(collab)}</h3>
+                <p class="collab-card-tagline truncate">${collabTagline(collab)}</p>
+                <p class="collab-card-role truncate" style="color:${collab.color}">${collabRole(collab)}</p>
               </div>
             </button>
           `
@@ -411,24 +411,24 @@ function renderBrands() {
   // Start the one-by-one fade-in for the freshly rendered cards
 }
 
-/** Switch the active brand (cards, modal and gallery). */
-function setActiveBrand(id) {
-  const brand = getBrand(id);
-  if (!brand || !brandHero) return;
+/** Switch the active collab (cards, modal and gallery). */
+function setActiveCollab(id) {
+  const collab = getCollab(id);
+  if (!collab || !collabHero) return;
 
-  activeBrandId = brand.id;
+  activeCollabId = collab.id;
 
-  // Keep the hero accent in sync with the brand
-  brandHero.style.setProperty("--brand-accent", brand.color);
+  // Keep the hero accent in sync with the collab
+  collabHero.style.setProperty("--collab-accent", collab.color);
 }
 
-/** Open a brand profile. Shows the brand profile and its art. */
-function openBrandModal(id) {
-  const brand = getBrand(id);
-  if (!brand || !brandProfile) return;
+/** Open a collab profile. Shows the collab profile and its art. */
+function openCollabModal(id) {
+  const collab = getCollab(id);
+  if (!collab || !collabProfile) return;
 
-  // Mark the brand as the active one
-  setActiveBrand(brand.id);
+  // Mark the collab as the active one
+  setActiveCollab(collab.id);
 
   const row = (label, value) => `
         <div class="flex items-center justify-between gap-3 py-2 border-b border-[#2E3138] last:border-b-0">
@@ -451,127 +451,127 @@ function openBrandModal(id) {
       `;
 
   const art =
-    brand.art && brand.art.length
-      ? brand.art
+    collab.art && collab.art.length
+      ? collab.art
           .map(
             (piece) => `
-            <figure class="brand-art-item">
+            <figure class="collab-art-item">
               <img src="${piece.src}" alt="${piece.title}" loading="lazy" decoding="async" />
               <figcaption>${piece.title}</figcaption>
             </figure>
           `
           )
           .join("")
-      : `<p class="text-sm text-[#8E8D88]">${I18N.t("brandArtEmpty", "No art uploaded yet.")}</p>`;
+      : `<p class="text-sm text-[#8E8D88]">${I18N.t("collabArtEmpty", "No art uploaded yet.")}</p>`;
 
-  brandProfile.innerHTML = `
-        <div class="brand-modal-banner">
-          <div class="brand-cover-img">
-            <img src="${brand.cover}" alt="" aria-hidden="true" decoding="async" />
+  collabProfile.innerHTML = `
+        <div class="collab-modal-banner">
+          <div class="collab-cover-img">
+            <img src="${collab.cover}" alt="" aria-hidden="true" decoding="async" />
           </div>
-          <div class="brand-cover-scrim"></div>
+          <div class="collab-cover-scrim"></div>
         </div>
 
-        ${brandAvatar(brand, "brand-avatar-modal")}
+        ${collabAvatar(collab, "collab-avatar-modal")}
 
-        <h3 class="font-pixel text-xl font-bold text-[#F3F1EC] leading-snug mt-4">${brandName(brand)}</h3>
-        <p class="brand-card-tagline mt-1">${brandTagline(brand)}</p>
+        <h3 class="font-pixel text-xl font-bold text-[#F3F1EC] leading-snug mt-4">${collabName(collab)}</h3>
+        <p class="collab-card-tagline mt-1">${collabTagline(collab)}</p>
 
         <div
           class="inline-block font-pixel text-[11px] uppercase tracking-wider px-2.5 py-1 rounded border mt-3"
-          style="color:${brand.color}; border-color:${brand.color}40; background-color:${brand.color}1A"
+          style="color:${collab.color}; border-color:${collab.color}40; background-color:${collab.color}1A"
         >
-          ${brandRole(brand)}
+          ${collabRole(collab)}
         </div>
 
-        <p class="text-sm text-[#8E8D88] leading-relaxed mb-5 text-left mt-4">${brandBio(brand)}</p>
+        <p class="text-sm text-[#8E8D88] leading-relaxed mb-5 text-left mt-4">${collabBio(collab)}</p>
 
         <div class="text-left">
-          ${row(I18N.t("brandRole", "Role"), brandRole(brand))}
-          ${row(I18N.t("brandSince", "Since"), brandSince(brand))}
+          ${row(I18N.t("collabRole", "Role"), collabRole(collab))}
+          ${row(I18N.t("collabSince", "Since"), collabSince(collab))}
         </div>
 
         <div class="text-left mt-5">
           <div class="flex items-center justify-between gap-3 mb-3">
             <h4 class="font-pixel text-sm font-bold text-[#F3F1EC] uppercase tracking-wider">
-              ${I18N.t("brandArt", "Signature Art")}
+              ${I18N.t("collabArt", "Signature Art")}
             </h4>
             <span class="text-[11px] text-[#8E8D88]">
-              ${brand.art ? brand.art.length : 0} ${I18N.t("brandArtCount", "art pieces")}
+              ${collab.art ? collab.art.length : 0} ${I18N.t("collabArtCount", "art pieces")}
             </span>
           </div>
-          <div class="brand-art-grid">${art}</div>
+          <div class="collab-art-grid">${art}</div>
         </div>
 
         <div class="flex items-center justify-center gap-2 mt-5 pt-4 border-t border-[#2E3138]">
           ${socialBtn(
-            `https://www.tiktok.com/@${brand.handle.toLowerCase()}`,
+            `https://www.tiktok.com/@${collab.handle.toLowerCase()}`,
             ICONS.tiktok,
             "TikTok"
           )}
-          ${socialBtn(`https://discord.com/users/${brand.handle}`, ICONS.discord, "Discord")}
+          ${socialBtn(`https://discord.com/users/${collab.handle}`, ICONS.discord, "Discord")}
           ${socialBtn(
-            `https://twitch.tv/${brand.handle.toLowerCase()}`,
+            `https://twitch.tv/${collab.handle.toLowerCase()}`,
             ICONS.twitch,
             "Twitch"
           )}
-          ${socialBtn(`mailto:${brand.email}`, ICONS.email, "Email")}
+          ${socialBtn(`mailto:${collab.email}`, ICONS.email, "Email")}
         </div>
       `;
 
-  brandModal.classList.remove("hidden");
-  brandModal.classList.add("flex");
+  collabModal.classList.remove("hidden");
+  collabModal.classList.add("flex");
   document.body.style.overflow = "hidden";
 }
 
-/** Close the brand profile. */
-function closeBrandModal() {
-  if (!brandModal) return;
-  brandModal.classList.add("hidden");
-  brandModal.classList.remove("flex");
+/** Close the collab profile. */
+function closeCollabModal() {
+  if (!collabModal) return;
+  collabModal.classList.add("hidden");
+  collabModal.classList.remove("flex");
   document.body.style.overflow = "";
 }
 
 /** Clear the search box. */
-function resetBrandFilters() {
-  brandQuery = "";
-  if (brandSearch) brandSearch.value = "";
-  renderBrands();
+function resetCollabFilters() {
+  collabQuery = "";
+  if (collabSearch) collabSearch.value = "";
+  renderCollabs();
 }
 
 // Close the profile when clicking the backdrop
-if (brandModal) {
-  brandModal.addEventListener("click", (e) => {
-    if (e.target.id === "brandModal") closeBrandModal();
+if (collabModal) {
+  collabModal.addEventListener("click", (e) => {
+    if (e.target.id === "collabModal") closeCollabModal();
   });
 }
 
 // Close the profile with Escape
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && brandModal && !brandModal.classList.contains("hidden")) {
-    closeBrandModal();
+  if (e.key === "Escape" && collabModal && !collabModal.classList.contains("hidden")) {
+    closeCollabModal();
   }
 });
 
 // Live search
-if (brandSearch) {
-  brandSearch.addEventListener("input", (e) => {
-    brandQuery = e.target.value;
-    renderBrands();
+if (collabSearch) {
+  collabSearch.addEventListener("input", (e) => {
+    collabQuery = e.target.value;
+    renderCollabs();
   });
 }
 
 // Re-render when the locale changes
 I18N.onChange(() => {
-  renderBrands();
-  if (activeBrandId) setActiveBrand(activeBrandId);
+  renderCollabs();
+  if (activeCollabId) setActiveCollab(activeCollabId);
 });
 
 // Restore the saved language (default EN)
 I18N.init();
 
 // Initial render
-renderBrands();
-setActiveBrand(brands[0].id);
+renderCollabs();
+setActiveCollab(collabs[0].id);
 FADE_REVEAL.setup(document.body, ".fade-item", 90);
 DRAWER.init();

@@ -759,11 +759,11 @@
     }
 
     /* =========================================================================
-       BRANDS PAGE
-       A brand directory with a simple hero and a profile modal that shows
-       the brand's art.
+       COLLABS PAGE
+       A collab directory with a simple hero and a profile modal that shows
+       the collab's art.
        ========================================================================= */
-    .brand-banner {
+    .collab-banner {
       /* Simple hero background, the same one the home page uses */
       background-image: url('../img/bg.png');
       background-size: cover;
@@ -776,7 +776,7 @@
       min-height: 55vh;
     }
 
-    .brand-overlay {
+    .collab-overlay {
       /* Grow to the full height of the banner so the scrim always covers it */
       flex: 1 0 auto;
       width: 100%;
@@ -791,27 +791,27 @@
     }
 
     @media (min-width: 1024px) {
-      .brand-banner {
+      .collab-banner {
         min-height: 65vh;
       }
     }
 
     /* -------------------------------------------------------------------------
-       BRAND CARDS
+       COLLAB CARDS
        ------------------------------------------------------------------------- */
-    .brand-card {
+    .collab-card {
       position: relative;
       display: flex;
       flex-direction: column;
       transition: border-color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
     }
 
-    .brand-card:hover {
+    .collab-card:hover {
       transform: translateY(-4px);
       background-color: #22252B;
     }
 
-    .brand-cover {
+    .collab-cover {
       position: relative;
       width: 100%;
       aspect-ratio: 16 / 10;
@@ -820,14 +820,14 @@
     }
 
     /* Inner wrapper clips the zoomed image to the cover area */
-    .brand-cover-img {
+    .collab-cover-img {
       position: absolute;
       inset: 0;
       overflow: hidden;
       border-radius: 0.5rem 0.5rem 0 0;
     }
 
-    .brand-cover img {
+    .collab-cover img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -837,13 +837,13 @@
       transition: filter 0.35s ease, transform 0.45s ease;
     }
 
-    .brand-card:hover .brand-cover img {
+    .collab-card:hover .collab-cover img {
       filter: grayscale(0) brightness(1);
       transform: scale(1.07);
     }
 
     /* Darken the bottom so the name stays readable */
-    .brand-cover-scrim {
+    .collab-cover-scrim {
       position: absolute;
       inset: 0;
       background: linear-gradient(
@@ -857,9 +857,9 @@
 
 
     /* -------------------------------------------------------------------------
-       BRAND AVATAR (badge over the cover, plus the animated sprite)
+       COLLAB AVATAR (badge over the cover, plus the animated sprite)
        ------------------------------------------------------------------------- */
-    .brand-avatar {
+    .collab-avatar {
       position: relative;
       display: flex;
       align-items: center;
@@ -869,7 +869,7 @@
     }
 
     /* Avatar badge sits over the bottom edge of the cover */
-    .brand-avatar-badge {
+    .collab-avatar-badge {
       position: absolute;
       left: 50%;
       bottom: -1.25rem;
@@ -881,13 +881,13 @@
       transition: transform 0.2s ease, border-color 0.2s ease;
     }
 
-    .brand-card:hover .brand-avatar-badge {
+    .collab-card:hover .collab-avatar-badge {
       transform: translateX(-50%) scale(1.04);
-      border-color: var(--brand-color);
+      border-color: var(--collab-color);
     }
 
     /* Avatar overlapping the profile banner */
-    .brand-avatar-modal {
+    .collab-avatar-modal {
       width: 96px;
       height: 96px;
       margin: -2.5rem auto 0;
@@ -903,17 +903,17 @@
        32x28. Scrolling the background-position walks through the cells
        and produces a seamless looping pixel animation.
        ------------------------------------------------------------------------- */
-    .brand-sprite {
+    .collab-sprite {
       width: 96px;
       height: 84px;
       background-repeat: no-repeat;
       image-rendering: pixelated;
       background-position: 0 0;
       background-size: 96px 1680px; /* the 560px strip scaled 3x */
-      animation: brand-sprite-scroll 2.4s steps(20) infinite;
+      animation: collab-sprite-scroll 2.4s steps(20) infinite;
     }
 
-    @keyframes brand-sprite-scroll {
+    @keyframes collab-sprite-scroll {
       from {
         background-position: 0 0;
       }
@@ -923,9 +923,9 @@
     }
 
     /* -------------------------------------------------------------------------
-       BRAND PROFILE MODAL
+       COLLAB PROFILE MODAL
        ------------------------------------------------------------------------- */
-    .brand-modal-banner {
+    .collab-modal-banner {
       position: relative;
       width: 100%;
       aspect-ratio: 16 / 7;
@@ -936,24 +936,24 @@
       margin-right: -0.5rem;
     }
 
-    .brand-modal-banner .brand-cover-img {
+    .collab-modal-banner .collab-cover-img {
       border-radius: 0.5rem;
     }
 
-    .brand-modal-banner .brand-cover img {
+    .collab-modal-banner .collab-cover img {
       filter: grayscale(0.35) brightness(0.95);
     }
 
     /* -------------------------------------------------------------------------
-       BRAND ART GALLERY
+       COLLAB ART GALLERY
        ------------------------------------------------------------------------- */
-    .brand-art-grid {
+    .collab-art-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
       gap: 0.75rem;
     }
 
-    .brand-art-item {
+    .collab-art-item {
       margin: 0;
       border: 1px solid #2E3138;
       border-radius: 0.5rem;
@@ -962,12 +962,12 @@
       transition: border-color 0.2s ease, transform 0.2s ease;
     }
 
-    .brand-art-item:hover {
-      border-color: var(--brand-color, #3B82F6);
+    .collab-art-item:hover {
+      border-color: var(--collab-color, #3B82F6);
       transform: translateY(-2px);
     }
 
-    .brand-art-item img {
+    .collab-art-item img {
       width: 100%;
       aspect-ratio: 1 / 1;
       object-fit: cover;
@@ -975,7 +975,7 @@
       image-rendering: pixelated;
     }
 
-    .brand-art-item figcaption {
+    .collab-art-item figcaption {
       font-size: 10px;
       letter-spacing: 0.06em;
       text-transform: uppercase;
@@ -985,11 +985,11 @@
       border-top: 1px solid #2E3138;
     }
 
-    .brand-card-body {
+    .collab-card-body {
       padding: 1.75rem 1rem 1rem;
     }
 
-    .brand-card-tagline {
+    .collab-card-tagline {
       font-size: 11px;
       letter-spacing: 0.05em;
       text-transform: uppercase;
@@ -997,7 +997,7 @@
       margin-top: 0.375rem;
     }
 
-    .brand-card-role {
+    .collab-card-role {
       font-size: 11px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -1048,7 +1048,7 @@
       z-index: 2;
     }
 
-    .art-profile-avatar .brand-sprite {
+    .art-profile-avatar .collab-sprite {
       width: 100%;
       height: 100%;
     }

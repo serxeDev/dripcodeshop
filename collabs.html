@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Drippy CodeShop // Brands</title>
+  <title>Drippy CodeShop // Collabs</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,7 +23,7 @@
   <!-- ==================== TOP NAVIGATION BAR ==================== -->
   <header id="siteHeader" class="site-header fixed top-0 left-0 right-0 z-40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
-      <!-- Brand Logo -->
+      <!-- Site Logo -->
       <a href="index.html" class="flex items-center gap-3 group">
         <div class="flex flex-col">
           <span class="font-pixel text-lg sm:text-xl font-bold tracking-wide text-[#F3F1EC] leading-none">
@@ -37,7 +37,7 @@
       <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
         <a href="index.html" class="text-[#8E8D88] hover:text-[#3B82F6] transition-colors" data-i18n="navHome">Home</a>
         <a href="guild.html" class="text-[#8E8D88] hover:text-[#3B82F6] transition-colors" data-i18n="navGuild">Guild</a>
-        <a href="brands.html" class="text-[#F3F1EC] hover:text-[#3B82F6] transition-colors" data-i18n="navBrands">Brands</a>
+        <a href="collabs.html" class="text-[#F3F1EC] hover:text-[#3B82F6] transition-colors" data-i18n="navCollabs">Collabs</a>
         <a href="about.html" class="text-[#8E8D88] hover:text-[#F3F1EC] transition-colors" data-i18n="navAbout">About</a>
               </nav>
 
@@ -101,7 +101,7 @@
 
     <!-- Panel -->
     <div id="drawerPanel">
-      <!-- Brand + close -->
+      <!-- Logo + close -->
       <div class="flex items-center justify-between gap-3 px-4 h-16 border-b border-[#2E3138] shrink-0">
         <a href="index.html" onclick="closeDrawer()" class="flex items-center gap-2.5">
           <span class="font-pixel text-base font-bold tracking-wide text-[#F3F1EC] leading-none">
@@ -126,11 +126,11 @@
           <span data-i18n="navGuild">Guild</span>
         </a>
 
-        <a href="brands.html" data-nav="brands" onclick="closeDrawer()">
+        <a href="collabs.html" data-nav="collabs" onclick="closeDrawer()">
           <svg class="drawer-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M7 7h10M7 12h10M7 17h6M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z" />
           </svg>
-          <span data-i18n="navBrands">Brands</span>
+          <span data-i18n="navCollabs">Collabs</span>
         </a>
 
         <a href="about.html" data-nav="about" onclick="closeDrawer()">
@@ -183,36 +183,36 @@
   </div>
 
 
-  <!-- ==================== BRANDS HERO (changes per brand) ==================== -->
-  <section id="brandHero" class="brand-banner border-b border-[#2E3138]">
-    <div class="brand-overlay">
+  <!-- ==================== COLLABS HERO (changes per collab) ==================== -->
+  <section id="collabHero" class="collab-banner border-b border-[#2E3138]">
+    <div class="collab-overlay">
       <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-12 sm:pb-16">
         <div class="max-w-3xl mx-auto text-center">
-          <h1 id="brandHeroTitle" class="fade-item font-pixel text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#F3F1EC] leading-[1.1] mb-5" data-i18n="brandsTitle">
-            The Artists Behind The Vault
+          <h1 id="collabHeroTitle" class="fade-item font-pixel text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#F3F1EC] leading-[1.1] mb-5" data-i18n="collabsTitle">
+            The Collabs Behind The Vault
           </h1>
-          <p id="brandHeroSubtitle" class="fade-item text-base sm:text-lg text-[#8E8D88] leading-relaxed max-w-2xl mx-auto" data-i18n="brandsSubtitle">
-            Every brand in the archive brings its own style, signature art and story.
+          <p id="collabHeroSubtitle" class="fade-item text-base sm:text-lg text-[#8E8D88] leading-relaxed max-w-2xl mx-auto" data-i18n="collabsSubtitle">
+            Every collab in the archive brings its own style, signature art and story.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ==================== BRAND SELECTOR ==================== -->
+  <!-- ==================== COLLAB SELECTOR ==================== -->
   <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
     <!-- Section Header -->
     <div class="pb-6 mb-8 border-b border-[#2E3138] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-      <h2 class="font-pixel text-2xl sm:text-3xl font-bold text-[#F3F1EC]" data-i18n="brandsRoster">
-        Featured Brands
+      <h2 class="font-pixel text-2xl sm:text-3xl font-bold text-[#F3F1EC]" data-i18n="collabsRoster">
+        Featured Collabs
       </h2>
 
       <!-- Search -->
       <div class="relative">
         <input
           type="text"
-          id="brandSearch"
-          placeholder="Search brand..."
+          id="collabSearch"
+          placeholder="Search collab..."
           class="w-44 bg-[#141518] border border-[#2E3138] focus:border-[#3B82F6] focus:outline-none rounded px-3 py-2 pr-8 text-sm text-[#F3F1EC] placeholder-[#8E8D88]"
         />
         <svg class="w-4 h-4 text-[#8E8D88] absolute right-2.5 top-2.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -221,19 +221,19 @@
       </div>
     </div>
 
-    <!-- Brand Cards (rendered by JavaScript) -->
-    <div id="brandGrid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5"></div>
+    <!-- Collab Cards (rendered by JavaScript) -->
+    <div id="collabGrid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5"></div>
 
     <!-- Empty State -->
-    <div id="brandEmpty" class="hidden bg-[#1E2025] border border-[#2E3138] rounded-lg p-12 text-center">
-      <div class="font-pixel text-xl text-[#F3F1EC] mb-2" data-i18n="brandEmptyTitle">No brands found</div>
-      <p class="text-sm text-[#8E8D88] mb-5" data-i18n="brandEmptyText">Try a different name or tag.</p>
+    <div id="collabEmpty" class="hidden bg-[#1E2025] border border-[#2E3138] rounded-lg p-12 text-center">
+      <div class="font-pixel text-xl text-[#F3F1EC] mb-2" data-i18n="collabEmptyTitle">No collabs found</div>
+      <p class="text-sm text-[#8E8D88] mb-5" data-i18n="collabEmptyText">Try a different name or tag.</p>
       <button
         type="button"
-        onclick="resetBrandFilters()"
+        onclick="resetCollabFilters()"
         class="btn-flat px-4 py-2 rounded bg-[#3B82F6] text-[#F3F1EC] font-pixel text-sm"
       >
-        <span data-i18n="brandReset">RESET</span>
+        <span data-i18n="collabReset">RESET</span>
       </button>
     </div>
   </main>
@@ -276,8 +276,8 @@
               </a>
             </li>
             <li>
-              <a href="brands.html" class="text-[#8E8D88] hover:text-[#F3F1EC] transition-colors flex items-center gap-2">
-            <span class="font-pixel text-[#3B82F6]">&gt;</span> <span data-i18n="navBrands">Brands</span>
+              <a href="collabs.html" class="text-[#8E8D88] hover:text-[#F3F1EC] transition-colors flex items-center gap-2">
+            <span class="font-pixel text-[#3B82F6]">&gt;</span> <span data-i18n="navCollabs">Collabs</span>
               </a>
             </li>
             <li>
@@ -366,9 +366,9 @@
         </p>
       </div>
     </div>
-  <!-- ==================== MODAL: BRAND PROFILE ==================== -->
+  <!-- ==================== MODAL: COLLAB PROFILE ==================== -->
   <div
-    id="brandModal"
+    id="collabModal"
     class="fixed inset-0 z-50 hidden items-center justify-center bg-[#141518]/85 p-4 overflow-y-auto"
     role="dialog"
     aria-modal="true"
@@ -378,24 +378,24 @@
       <div class="flex justify-end mb-3">
         <button
           type="button"
-          onclick="closeBrandModal()"
-          aria-label="Close brand profile"
+          onclick="closeCollabModal()"
+          aria-label="Close collab profile"
           class="shrink-0 text-[#EF4444] hover:text-[#F87171] font-pixel text-lg px-2 transition-colors"
         >
           [X]
         </button>
       </div>
 
-      <!-- Brand profile body (rendered by JavaScript) -->
-      <div id="brandProfile" class="text-center"></div>
+      <!-- Collab profile body (rendered by JavaScript) -->
+      <div id="collabProfile" class="text-center"></div>
     </div>
   </div>
 
   <!-- Shared modules (I18N, drawer, fade reveal, sticky header, toast, guide modal) -->
   <script src="js/app.js"></script>
 
-  <!-- Page-specific code for the brands directory -->
-  <script src="js/brands.js"></script>
+  <!-- Page-specific code for the collabs directory -->
+  <script src="js/collabs.js"></script>
 
 </body>
 </html>

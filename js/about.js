@@ -9,7 +9,7 @@ I18N.addDict({
     tagline: "Classic GFX Vault",
     navHome: "Home",
     navGuild: "Guild",
-    navBrands: "Brands",
+    navCollabs: "Collabs",
     navAbout: "About",
     navSaved: "Saved",
     saveLabel: "Save this code",
@@ -67,9 +67,9 @@ I18N.addDict({
     aboutCrewGrimReaper: "GrimReaper",
     aboutCrewGrimReaperText: "Event master. Runs the seasonal events and the spooky drops.",
     aboutP5:
-      'Want the full roster with join dates and bios? The <a href="guild.html" data-i18n="aboutGuildLink">Guild page</a> has the full list, and the <a href="brands.html" data-i18n="aboutBrandsLink">Brands page</a> shows off each artist\'s signature art.',
+      'Want the full roster with join dates and bios? The <a href="guild.html" data-i18n="aboutGuildLink">Guild page</a> has the full list, and the <a href="collabs.html" data-i18n="aboutCollabsLink">Collabs page</a> shows off each artist\'s signature art.',
     aboutGuildLink: "Guild page",
-    aboutBrandsLink: "Brands page",
+    aboutCollabsLink: "Collabs page",
     aboutP6:
       "Daily Graal GFX drops, upload tutorials and community code requests all happen on our social channels. The Discord is where the crew hangs out and where requests get turned into new art.",
     aboutSocialTikTok:
@@ -113,7 +113,7 @@ I18N.addDict({
     tagline: "Bóveda de GFX Clásicos",
     navHome: "Inicio",
     navGuild: "Gremio",
-    navBrands: "Marcas",
+    navCollabs: "Colabs",
     navAbout: "Sobre mí",
     navSaved: "Guardados",
     saveLabel: "Guardar este código",
@@ -171,9 +171,9 @@ I18N.addDict({
     aboutCrewGrimReaper: "GrimReaper",
     aboutCrewGrimReaperText: "Maestro de eventos. Organiza los eventos de temporada y los lanzamientos espantosos.",
     aboutP5:
-      '¿Quieres la lista completa con fechas de entrada y bios? La <a href="guild.html" data-i18n="aboutGuildLink">página del Gremio</a> tiene la lista entera, y la <a href="brands.html" data-i18n="aboutBrandsLink">página de Marcas</a> muestra el arte exclusivo de cada artista.',
+      '¿Quieres la lista completa con fechas de entrada y bios? La <a href="guild.html" data-i18n="aboutGuildLink">página del Gremio</a> tiene la lista entera, y la <a href="collabs.html" data-i18n="aboutCollabsLink">página de Colabs</a> muestra el arte exclusivo de cada artista.',
     aboutGuildLink: "página del Gremio",
-    aboutBrandsLink: "página de Marcas",
+    aboutCollabsLink: "página de Colabs",
     aboutP6:
       "Los lanzamientos diarios de GFX de Graal, los tutoriales de subidas y las peticiones de códigos de la comunidad ocurren en nuestros canales sociales. El Discord es donde el equipo se reúne y donde las peticiones se convierten en arte nuevo.",
     aboutSocialTikTok:

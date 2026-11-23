@@ -9,7 +9,7 @@ I18N.addDict({
     tagline: "Classic GFX Vault",
     navHome: "Home",
     navGuild: "Guild",
-    navBrands: "Brands",
+    navCollabs: "Collabs",
     navAbout: "About",
     navSaved: "Saved",
     saveLabel: "Save this code",
@@ -65,7 +65,7 @@ I18N.addDict({
       "Use the Site or its content for anything unlawful, or in a way that infringes the rights of others.",
     termsLi5: "Impersonate the Site, its artists or other members of the community.",
     termsP5:
-      "Drippy CodeShop is an unofficial, fan-made community project. The pixel artwork published here is created by the artists listed on the Brands and Guild pages and remains the property of those artists and their respective rights holders.",
+      "Drippy CodeShop is an unofficial, fan-made community project. The pixel artwork published here is created by the artists listed on the Collabs and Guild pages and remains the property of those artists and their respective rights holders.",
     termsP6:
       "GraalOnline Classic, Toonslab and Eurocenter are trademarks and properties of their respective owners. This Site is not affiliated with, endorsed by, or sponsored by Toonslab or Eurocenter. All brand names, logos and game content are used for identification and community purposes only.",
     termsP7:
@@ -110,7 +110,7 @@ I18N.addDict({
     tagline: "Bóveda de GFX Clásicos",
     navHome: "Inicio",
     navGuild: "Gremio",
-    navBrands: "Marcas",
+    navCollabs: "Colabs",
     navAbout: "Sobre mí",
     navSaved: "Guardados",
     saveLabel: "Guardar este código",
@@ -166,7 +166,7 @@ I18N.addDict({
       "Usar el Sitio o su contenido de forma ilegal, o de una manera que vulnere los derechos de terceros.",
     termsLi5: "Suplantar al Sitio, a sus artistas o a otros miembros de la comunidad.",
     termsP5:
-      "Drippy CodeShop es un proyecto comunitario no oficial, hecho por fans. El arte de pixel art publicado aquí es creado por los artistas listados en las páginas de Marcas y Gremio y sigue siendo propiedad de esos artistas y de sus respectivos titulares de derechos.",
+      "Drippy CodeShop es un proyecto comunitario no oficial, hecho por fans. El arte de pixel art publicado aquí es creado por los artistas listados en las páginas de Colabs y Gremio y sigue siendo propiedad de esos artistas y de sus respectivos titulares de derechos.",
     termsP6:
       "GraalOnline Classic, Toonslab y Eurocenter son marcas comerciales y propiedades de sus respectivos dueños. Este Sitio no está afiliado, respaldado ni patrocinado por Toonslab o Eurocenter. Todos los nombres de marca, logotipos y contenidos del juego se usan solo con fines de identificación y comunidad.",
     termsP7:

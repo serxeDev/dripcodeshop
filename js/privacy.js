@@ -9,7 +9,7 @@ I18N.addDict({
     tagline: "Classic GFX Vault",
     navHome: "Home",
     navGuild: "Guild",
-    navBrands: "Brands",
+    navCollabs: "Collabs",
     navAbout: "About",
     navSaved: "Saved",
     saveLabel: "Save this code",
@@ -77,7 +77,7 @@ I18N.addDict({
     privacyP12:
       "The Site loads the Pixelify Sans and Space Grotesk fonts from Google Fonts, and it loads the Tailwind CSS framework from a public CDN. Your browser therefore contacts those providers directly, which means Google may receive the usual technical request information such as your IP address and browser version.",
     privacyP13:
-      "We also link out to GraalOnline Classic, TikTok, Discord and the artist profiles on our Brands and Guild pages. Those are independent services with their own privacy policies, and we have no control over what they do with your data once you follow a link.",
+      "We also link out to GraalOnline Classic, TikTok, Discord and the artist profiles on our Collabs and Guild pages. Those are independent services with their own privacy policies, and we have no control over what they do with your data once you follow a link.",
     privacyP14:
       "Since the only data we hold is the pair of preferences sitting in your own browser, there is no server-side profile to protect. The archive is served over HTTPS, and we keep the collection of stored values deliberately small so there is very little that could ever go wrong.",
     privacyP15:
@@ -109,7 +109,7 @@ I18N.addDict({
     tagline: "Bóveda de GFX Clásicos",
     navHome: "Inicio",
     navGuild: "Gremio",
-    navBrands: "Marcas",
+    navCollabs: "Colabs",
     navAbout: "Sobre mí",
     navSaved: "Guardados",
     saveLabel: "Guardar este código",
@@ -177,7 +177,7 @@ I18N.addDict({
     privacyP12:
       "El Sitio carga las tipografías Pixelify Sans y Space Grotesk desde Google Fonts, y carga el framework Tailwind CSS desde un CDN público. Por lo tanto, tu navegador contacta directamente con esos proveedores, lo que significa que Google puede recibir la información técnica habitual de la petición, como tu dirección IP y la versión de tu navegador.",
     privacyP13:
-      "También enlazamos a GraalOnline Classic, TikTok, Discord y a los perfiles de artistas de nuestras páginas de Marcas y Gremio. Son servicios independientes con sus propias políticas de privacidad, y no tenemos control sobre lo que hacen con tus datos una vez sigues un enlace.",
+      "También enlazamos a GraalOnline Classic, TikTok, Discord y a los perfiles de artistas de nuestras páginas de Colabs y Gremio. Son servicios independientes con sus propias políticas de privacidad, y no tenemos control sobre lo que hacen con tus datos una vez sigues un enlace.",
     privacyP14:
       "Como el único dato que tenemos son las dos preferencias guardadas en tu propio navegador, no hay ningún perfil en el servidor que proteger. El archivo se sirve mediante HTTPS y mantenemos deliberadamente pequeña la cantidad de valores almacenados para que muy poco pueda salir mal.",
     privacyP15:
